@@ -1,26 +1,125 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer base {
+  @font-face {
+    font-family: 'Montserrat';
+    font-weight: 700 800;
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap');
+  }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  @font-face {
+    font-family: 'Poppins';
+    font-weight: 600 700;
+    src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+  }
 
-@media (prefers-color-scheme: dark) {
+  @font-face {
+    font-family: 'Open Sans';
+    font-weight: 400 500 600;
+    src: url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap');
+  }
+
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* CENDES Color Palette */
+    --color-primary: #7C3AED;
+    --color-primary-dark: #6D28D9;
+    --color-primary-light: #8B5CF6;
+
+    --color-accent: #06B6D4;
+    --color-accent-dark: #0891B2;
+    --color-accent-light: #22D3EE;
+
+    --color-highlight: #F59E0B;
+    --color-highlight-dark: #D97706;
+    --color-highlight-light: #FBBF24;
+
+    --color-background: #FFFFFF;
+    --color-background-gray: #F9FAFB;
+    --color-background-lavender: #F3E8FF;
+    --color-background-dark: #1F2937;
+
+    --color-text-primary: #111827;
+    --color-text-secondary: #6B7280;
+    --color-text-light: #FFFFFF;
+
+    /* Typography */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-subheading: 'Poppins', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+
+    /* Spacing */
+    --section-padding: 5rem 1rem;
+    --container-max-width: 1280px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-background);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+
+  /* Container utility */
+  .container-cendes {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  /* Section spacing */
+  .section-cendes {
+    padding: var(--section-padding);
+  }
+}
+
+@layer utilities {
+
+  /* Smooth transitions for interactive elements */
+  button,
+  a {
+    transition: all 0.3s ease;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-background-gray);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-dark);
+  }
 }

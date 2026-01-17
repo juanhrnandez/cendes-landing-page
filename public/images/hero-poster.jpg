@@ -1,0 +1,18 @@
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#heroGrad)"/>
+  <text x="960" y="500" font-family="Arial, sans-serif" font-size="48" fill="#FFFFFF" text-anchor="middle" font-weight="bold">
+    Hero Video Background Placeholder
+  </text>
+  <text x="960" y="560" font-family="Arial, sans-serif" font-size="24" fill="#FFFFFF" text-anchor="middle">
+    Replace with actual video file
+  </text>
+  <text x="960" y="600" font-family="Arial, sans-serif" font-size="18" fill="#FFFFFF" text-anchor="middle" opacity="0.8">
+    Recommended: MP4 format, muted, optimized for web
+  </text>
+</svg>
