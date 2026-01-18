@@ -3,12 +3,14 @@
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import ProblemSection from '@/components/ProblemSection';
+import BridgeSection from '@/components/BridgeSection';
 import SolutionSection from '@/components/SolutionSection';
 import HowItWorksSection from '@/components/HowItWorksSection';
 import ProgramsSection from '@/components/ProgramsSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import ReachSection from '@/components/ReachSection';
 import OptionsSection from '@/components/OptionsSection';
+import BridgeSectionFAQ from '@/components/BridgeSectionFAQ';
 import FAQSection from '@/components/FAQSection';
 import FinalCTASection from '@/components/FinalCTASection';
 import Footer from '@/components/Footer';
@@ -19,12 +21,14 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <ProblemSection />
+      <BridgeSection />
       <SolutionSection />
       <HowItWorksSection />
       <ProgramsSection />
       <TestimonialsSection />
       <ReachSection />
       <OptionsSection />
+      <BridgeSectionFAQ />
       <FAQSection />
       <FinalCTASection />
       <Footer />
