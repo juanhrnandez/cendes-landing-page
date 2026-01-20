@@ -20,20 +20,25 @@ export default function Navbar() {
             initial={{ y: -100 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                ? 'bg-white/10 backdrop-blur-xl shadow-lg border-b border-white/20'
-                : 'bg-transparent'
-                }`}
+            className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md"
         >
             <div className="container-cendes">
-                <div className="flex items-center justify-center py-2 md:py-3">
+                <div className="flex items-center justify-between py-3 md:py-1">
                     {/* Logo */}
                     <a href="/" className="flex items-center">
                         <img
                             src="/images/CENDES.svg"
                             alt="CENDES"
-                            className="h-14 md:h-16"
+                            className="h-12 md:h-16"
                         />
+                    </a>
+
+                    {/* Contact Button */}
+                    <a 
+                        href="#contacto" 
+                        className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full font-bold text-lg transition-colors duration-300 shadow-md hover:shadow-lg"
+                    >
+                        Contacto
                     </a>
                 </div>
             </div>

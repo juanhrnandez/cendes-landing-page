@@ -13,7 +13,7 @@ export default function SolutionSection() {
             </div>
 
             <div className="container-cendes relative z-10">
-                <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
+                <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-stretch">
                     {/* Left Column: Text Content */}
                     <AnimatedSection direction="left">
                         <div className="space-y-6">
@@ -106,13 +106,13 @@ export default function SolutionSection() {
                     </AnimatedSection>
 
                     {/* Right Column: Enhanced Image */}
-                    <AnimatedSection direction="right">
-                        <div className="relative h-full min-h-[400px] lg:min-h-[600px]">
+                    <AnimatedSection direction="right" className="flex">
+                        <div className="relative w-full min-h-[400px] lg:min-h-[600px]">
                             {/* Decorative gradient border */}
                             <div className="absolute -inset-1 bg-gradient-to-br from-[var(--color-primary)] via-[var(--color-accent)] to-[var(--color-highlight)] rounded-3xl opacity-20 blur-xl animate-pulse-slow"></div>
 
                             {/* Image container with floating animation */}
-                            <div className="relative h-full rounded-3xl overflow-hidden shadow-2xl hover:shadow-[0_25px_50px_-12px_rgba(124,58,237,0.25)] transition-all duration-700 group">
+                            <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl hover:shadow-[0_25px_50px_-12px_rgba(124,58,237,0.25)] transition-all duration-700 group">
                                 <img
                                     src="/images/cendes.jpg"
                                     alt="Equipo CENDES"

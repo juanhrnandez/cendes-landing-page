@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useCallback, useEffect, useState } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
 import Button from '@/components/Button';
@@ -9,150 +10,120 @@ import Card from '@/components/Card';
 import { programs } from '@/lib/constants';
 
 export default function ProgramsSection() {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [isPaused, setIsPaused] = useState(false);
+    const [emblaRef, emblaApi] = useEmblaCarousel(
+        { 
+            loop: true,
+            align: 'start',
+            containScroll: false,
+            dragFree: false,
+            skipSnaps: false,
+            startIndex: 0
+        },
+        [Autoplay({ delay: 4000, stopOnInteraction: true })]
+    );
 
-    // Auto-scroll carousel
+    const [selectedIndex, setSelectedIndex] = useState(0);
+
+    const scrollPrev = useCallback(() => {
+        if (emblaApi) emblaApi.scrollPrev();
+    }, [emblaApi]);
+
+    const scrollNext = useCallback(() => {
+        if (emblaApi) emblaApi.scrollNext();
+    }, [emblaApi]);
+
+    const scrollTo = useCallback((index) => {
+        if (emblaApi) emblaApi.scrollTo(index);
+    }, [emblaApi]);
+
+    const onSelect = useCallback(() => {
+        if (!emblaApi) return;
+        setSelectedIndex(emblaApi.selectedScrollSnap());
+    }, [emblaApi]);
+
     useEffect(() => {
-        if (isPaused) return;
-
-        const interval = setInterval(() => {
-            setCurrentIndex((prev) => (prev + 1) % programs.length);
-        }, 4000);
-
-        return () => clearInterval(interval);
-    }, [isPaused]);
-
-    const nextProgram = () => {
-        setCurrentIndex((prev) => (prev + 1) % programs.length);
-    };
-
-    const prevProgram = () => {
-        setCurrentIndex((prev) => (prev - 1 + programs.length) % programs.length);
-    };
-
-    // Get visible cards (current, next, and previous)
-    const getVisibleCards = () => {
-        const cards = [];
-        for (let i = -1; i <= 1; i++) {
-            const index = (currentIndex + i + programs.length) % programs.length;
-            cards.push({ ...programs[index], position: i });
-        }
-        return cards;
-    };
+        if (!emblaApi) return;
+        onSelect();
+        emblaApi.on('select', onSelect);
+        emblaApi.on('reInit', onSelect);
+    }, [emblaApi, onSelect]);
 
     return (
-        <section id="programs" className="section-cendes bg-gradient-to-br from-purple-50 to-cyan-50 overflow-hidden">
-            <div className="container-cendes">
+        <section id="programs" className="py-16 md:py-20 bg-gradient-to-br from-purple-50 to-cyan-50 overflow-hidden">
+            {/* Header */}
+            <div className="container-cendes mb-12">
                 <AnimatedSection>
-                    <h2 className="mb-4 text-center text-3xl font-bold md:text-4xl lg:text-5xl">
-                        Nuestros Programas
-                    </h2>
-                    <p className="mx-auto mb-12 max-w-3xl text-center text-lg text-gray-600 md:text-xl">
-                        5 programas especializados por edad y temática
-                    </p>
+                    <div className="text-center">
+                        <h2 className="mb-3 text-3xl font-bold md:text-4xl lg:text-5xl">
+                            Nuestros Programas
+                        </h2>
+                        <p className="mx-auto max-w-3xl text-lg text-gray-600 md:text-xl">
+                            5 programas especializados por edad y temática
+                        </p>
+                    </div>
                 </AnimatedSection>
+            </div>
 
-                {/* Carousel Container */}
-                <div
-                    className="relative py-12"
-                    onMouseEnter={() => setIsPaused(true)}
-                    onMouseLeave={() => setIsPaused(false)}
-                >
-                    {/* Cards with 3D perspective */}
-                    <div className="relative mx-auto h-[500px] md:h-[450px]" style={{ perspective: '2000px' }}>
-                        <AnimatePresence mode="popLayout">
-                            {getVisibleCards().map((program, idx) => {
-                                const position = program.position;
-
-                                // Calculate rotation and position for 3D carousel effect
-                                const rotateY = position * 35; // Degrees of rotation
-                                const translateX = position * 60; // Percentage movement
-                                const translateZ = position === 0 ? 0 : -200; // Depth
-
-                                return (
-                                    <motion.div
-                                        key={`${program.id}-${currentIndex}`}
-                                        initial={{
-                                            rotateY: position === 1 ? 35 : position === -1 ? -35 : 0,
-                                            x: `${translateX}%`,
-                                            z: translateZ,
-                                            scale: position === 0 ? 1 : 0.8,
-                                            opacity: position === 0 ? 1 : 0.4,
-                                        }}
-                                        animate={{
-                                            rotateY: rotateY,
-                                            x: `${translateX}%`,
-                                            z: translateZ,
-                                            scale: position === 0 ? 1 : 0.8,
-                                            opacity: position === 0 ? 1 : 0.4,
-                                        }}
-                                        exit={{
-                                            rotateY: position === -1 ? -70 : 70,
-                                            x: position === -1 ? '-100%' : '100%',
-                                            opacity: 0,
-                                            scale: 0.6,
-                                        }}
-                                        transition={{
-                                            duration: 0.6,
-                                            ease: [0.32, 0.72, 0, 1], // Custom cubic-bezier for smooth easing
-                                        }}
-                                        className="absolute left-1/2 top-0 w-full max-w-xl -translate-x-1/2"
-                                        style={{
-                                            transformStyle: 'preserve-3d',
-                                            zIndex: position === 0 ? 20 : 10 - Math.abs(position),
-                                            pointerEvents: position === 0 ? 'auto' : 'none',
-                                        }}
-                                    >
-                                        <Card {...program} />
-                                    </motion.div>
-                                );
-                            })}
-                        </AnimatePresence>
-                    </div>
-
-                    {/* Navigation Buttons */}
-                    <div className="absolute left-0 right-0 top-1/2 z-30 flex -translate-y-1/2 items-center justify-between px-4">
-                        <button
-                            onClick={prevProgram}
-                            className="rounded-full bg-white p-4 shadow-xl transition-all hover:scale-110 hover:bg-[var(--color-primary)] hover:text-white"
-                            aria-label="Programa anterior"
-                        >
-                            <ChevronLeft className="h-6 w-6" />
-                        </button>
-
-                        <button
-                            onClick={nextProgram}
-                            className="rounded-full bg-white p-4 shadow-xl transition-all hover:scale-110 hover:bg-[var(--color-primary)] hover:text-white"
-                            aria-label="Siguiente programa"
-                        >
-                            <ChevronRight className="h-6 w-6" />
-                        </button>
+            {/* Embla Carousel */}
+            <div className="relative">
+                <div className="overflow-hidden" ref={emblaRef}>
+                    <div className="flex gap-4 md:gap-6 px-4 md:px-8">
+                        {programs.map((program, index) => (
+                            <div
+                                key={program.id}
+                                className="flex-[0_0_90%] sm:flex-[0_0_75%] md:flex-[0_0_550px] lg:flex-[0_0_650px] min-w-0"
+                            >
+                                <Card {...program} />
+                            </div>
+                        ))}
                     </div>
                 </div>
 
-                {/* Dots Indicator */}
-                <div className="mt-8 flex justify-center gap-2">
-                    {programs.map((_, index) => (
-                        <button
-                            key={index}
-                            onClick={() => setCurrentIndex(index)}
-                            className={`h-3 rounded-full transition-all ${index === currentIndex
-                                ? 'w-8 bg-[var(--color-primary)]'
-                                : 'w-3 bg-gray-300 hover:bg-gray-400'
-                                }`}
-                            aria-label={`Ir a programa ${index + 1}`}
-                        />
-                    ))}
-                </div>
+                {/* Navigation Buttons */}
+                <div className="absolute left-0 right-0 top-1/2 z-30 flex -translate-y-1/2 items-center justify-between px-4 md:px-8 pointer-events-none">
+                    <button
+                        onClick={scrollPrev}
+                        className="pointer-events-auto rounded-full bg-white p-3 md:p-4 shadow-xl transition-all hover:scale-110 hover:bg-purple-600 hover:text-white active:scale-95"
+                        aria-label="Programa anterior"
+                    >
+                        <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
+                    </button>
 
-                <p className="mt-8 text-center text-lg text-gray-600">
+                    <button
+                        onClick={scrollNext}
+                        className="pointer-events-auto rounded-full bg-white p-3 md:p-4 shadow-xl transition-all hover:scale-110 hover:bg-purple-600 hover:text-white active:scale-95"
+                        aria-label="Siguiente programa"
+                    >
+                        <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
+                    </button>
+                </div>
+            </div>
+
+            {/* Dots Indicator */}
+            <div className="mt-8 flex justify-center gap-2">
+                {programs.map((program, index) => (
+                    <button
+                        key={program.id}
+                        onClick={() => scrollTo(index)}
+                        className={`h-2.5 rounded-full transition-all duration-300 ${
+                            index === selectedIndex
+                                ? 'w-10 bg-gradient-to-r from-purple-600 to-cyan-600'
+                                : 'w-2.5 bg-gray-300 hover:bg-gray-400'
+                        }`}
+                        aria-label={`Ir a ${program.title}`}
+                    />
+                ))}
+            </div>
+
+            {/* Bottom Content */}
+            <div className="container-cendes mt-10">
+                <p className="text-center text-base md:text-lg text-gray-600">
                     No importa dónde esté tu escuela o cuántos alumnos tengas.
                     Tenemos opciones para TODA la República Mexicana.
                 </p>
 
-                <div className="mt-12 text-center">
-                    <Button variant="primary" size="large" href="/registro">
+                <div className="mt-8 text-center">
+                    <Button variant="primary" size="large" href="#contacto">
                         Descubre qué programa es para tu escuela
                     </Button>
                 </div>

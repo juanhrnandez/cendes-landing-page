@@ -11,11 +11,11 @@ export default function Footer() {
                     {/* Column 1: Info */}
                     <div>
                         {/* CENDES Logo */}
-                        <div className="mb-4">
+                        <div className="mb-4 bg-white px-2 rounded-lg inline-block">
                             <img
                                 src="/images/CENDES.svg"
                                 alt="CENDES"
-                                className="h-12 w-auto md:h-14"
+                                className="h-12 w-auto md:h-16"
                             />
                         </div>
                         <p className="mb-4 text-white/80">
