@@ -12,7 +12,7 @@
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <image:image>
-            <image:loc>https://cendes-landing-page.vercel.app/images/cendes-og-image.jpg</image:loc>
+            <image:loc>https://cendes-landing-page.vercel.app/og-index.jpg</image:loc>
             <image:title>CENDES - Prevención de Violencia Sexual y Bullying</image:title>
         </image:image>
     </url>

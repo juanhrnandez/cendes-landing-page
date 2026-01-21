@@ -50,7 +50,7 @@ export default function Home() {
         <meta property="og:url" content={siteUrl} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={`${siteUrl}/images/cendes-og-image.jpg`} />
+        <meta property="og:image" content={`${siteUrl}/og-index.jpg`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:locale" content="es_MX" />
@@ -61,7 +61,7 @@ export default function Home() {
         <meta property="twitter:url" content={siteUrl} />
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
-        <meta property="twitter:image" content={`${siteUrl}/images/cendes-og-image.jpg`} />
+        <meta property="twitter:image" content={`${siteUrl}/og-index.jpg`} />
         
         {/* Additional SEO */}
         <meta name="format-detection" content="telephone=no" />
