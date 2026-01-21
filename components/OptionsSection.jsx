@@ -47,7 +47,7 @@ export default function OptionsSection() {
                                     <span>Monólogo en el teatro</span>
                                 </li>
                             </ul>
-                            <Button variant="primary" size="large" href="/registro" className="w-full">
+                            <Button variant="primary" size="large" href="https://registro.cendes.org/" className="w-full">
                                 Solicitar información
                             </Button>
                         </div>
@@ -78,7 +78,7 @@ export default function OptionsSection() {
                                     <span>Mismo impacto, adaptado a tu ubicación</span>
                                 </li>
                             </ul>
-                            <Button variant="accent" size="large" href="/registro" className="w-full">
+                            <Button variant="accent" size="large" href="https://registro.cendes.org/" className="w-full">
                                 Solicitar información
                             </Button>
                         </div>

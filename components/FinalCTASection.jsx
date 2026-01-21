@@ -41,7 +41,7 @@ export default function FinalCTASection() {
                                 <p className="text-purple-300">Fundadora y Directora de CENDES</p>
                             </div>
                             
-                            <Button variant="large" size="xlarge" href="/registro">
+                            <Button variant="large" size="xlarge" href="https://registro.cendes.org/">
                                 Descubre qué programa es para tu escuela
                             </Button>
                         </div>

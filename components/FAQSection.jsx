@@ -30,7 +30,7 @@ export default function FAQSection() {
                     <p className="mb-6 text-lg text-gray-600">
                         ¿Tienes más preguntas? Estamos aquí para ayudarte
                     </p>
-                    <Button variant="secondary" size="large" href="/registro">
+                    <Button variant="secondary" size="large" href="https://registro.cendes.org/">
                         Contactar a un asesor
                     </Button>
                 </AnimatedSection>

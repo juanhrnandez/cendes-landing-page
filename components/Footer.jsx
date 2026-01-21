@@ -52,7 +52,7 @@ export default function Footer() {
                         <ul className="space-y-2">
                             {programs.map((program) => (
                                 <li key={program.id}>
-                                    <a href="/registro" className="text-white/80 transition-colors hover:text-white">
+                                    <a href="https://registro.cendes.org/" className="text-white/80 transition-colors hover:text-white" target="_blank" rel="noopener noreferrer">
                                         {program.title}
                                     </a>
                                 </li>
