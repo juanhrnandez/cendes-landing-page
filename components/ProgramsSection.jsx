@@ -123,7 +123,7 @@ export default function ProgramsSection() {
                 </p>
 
                 <div className="mt-8 text-center">
-                    <Button variant="primary" size="large" href="#contacto">
+                    <Button variant="primary" size="large" href="https://registro.cendes.org/">
                         Descubre qué programa es para tu escuela
                     </Button>
                 </div>
