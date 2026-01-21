@@ -11,7 +11,7 @@ export default function HeroSection() {
             <div className="absolute inset-0 z-0">
                 <img 
                     src="/images/cendes-book-niños.jpg" 
-                    alt="Niños leyendo con CENDES" 
+                    alt="Niños participando en programas educativos CENDES - Prevención de violencia sexual y bullying en escuelas de México" 
                     className="h-full w-full object-cover"
                 />
                 {/* Dark Gradient Overlays for better text readability */}
@@ -130,8 +130,8 @@ export default function HeroSection() {
                                 Reconocidos y apoyados por:
                             </p>
                             <div className="flex flex-wrap items-center gap-6">
-                                <img src="/images/spinna_logo.png" alt="SIPINNA" className="h-12 md:h-14 object-contain opacity-70 hover:opacity-100 transition-opacity brightness-0 invert" />
-                                <img src="/images/SNDIF_Logo_(2018).svg" alt="DIF Nacional" className="h-12 md:h-14 object-contain opacity-70 hover:opacity-100 transition-opacity brightness-0 invert" />
+                                <img src="/images/spinna_logo.png" alt="SIPINNA - Sistema Nacional de Protección Integral de Niñas, Niños y Adolescentes" className="h-12 md:h-14 object-contain opacity-70 hover:opacity-100 transition-opacity brightness-0 invert" />
+                                <img src="/images/SNDIF_Logo_(2018).svg" alt="DIF Nacional - Sistema Nacional para el Desarrollo Integral de la Familia" className="h-12 md:h-14 object-contain opacity-70 hover:opacity-100 transition-opacity brightness-0 invert" />
                             </div>
                         </div>
                     </motion.div>

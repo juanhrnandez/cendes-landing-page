@@ -28,7 +28,7 @@ export default function Navbar() {
                     <a href="/" className="flex items-center">
                         <img
                             src="/images/CENDES.svg"
-                            alt="CENDES"
+                            alt="CENDES - Centro de Desarrollo y Educación Social - Prevención de Violencia Sexual y Bullying"
                             className="h-12 md:h-16"
                         />
                     </a>

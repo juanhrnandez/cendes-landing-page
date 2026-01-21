@@ -14,7 +14,7 @@ export default function Footer() {
                         <div className="mb-4 bg-white px-2 rounded-lg inline-block">
                             <img
                                 src="/images/CENDES.svg"
-                                alt="CENDES"
+                                alt="CENDES - Centro de Desarrollo y Educación Social"
                                 className="h-12 w-auto md:h-16"
                             />
                         </div>
