@@ -35,8 +35,10 @@ export default function Navbar() {
 
                     {/* Contact Button */}
                     <a 
-                        href="#contacto" 
+                        href="https://registro.cendes.org/" 
                         className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full font-bold text-lg transition-colors duration-300 shadow-md hover:shadow-lg"
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
                         Contacto
                     </a>

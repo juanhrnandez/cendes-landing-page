@@ -97,7 +97,7 @@ export default function HeroSection() {
 
                         {/* CTA Button */}
                         <div className="space-y-4 pt-2">
-                            <Button variant="large" size="xlarge" href="#programas">
+                            <Button variant="large" size="xlarge" href="https://registro.cendes.org/">
                                 Descubre qué programa es para tu escuela
                             </Button>
                             
