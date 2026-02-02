@@ -51,28 +51,7 @@ export default function ReachSection() {
             <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#B4B651]/10 rounded-full blur-[100px]" />
 
             <div className="container-cendes relative z-10 px-6">
-                 <div className="text-center max-w-3xl mx-auto mb-16">
-                    <motion.div
-                        initial={{ opacity: 0, y: 15 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                    >
-                         <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 border border-gray-200 shadow-sm mb-6">
-                            <Globe className="h-4 w-4 text-[#C47440]" />
-                            <span className="text-xs font-bold text-gray-600 uppercase tracking-widest">
-                                Impacto Real
-                            </span>
-                        </div>
-                        <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 leading-tight">
-                            Llevando prevención a <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C47440] to-[#A85F33]">cada rincón de México.</span>
-                        </h2>
-                        <p className="text-lg text-gray-600 leading-relaxed">
-                            Desde hace 10 años, trabajamos incansablemente para asegurar que ninguna escuela se quede sin herramientas de protección.
-                        </p>
-                    </motion.div>
-                </div>
-
+                
                 {/* Stats Grid */}
                 <div className="grid md:grid-cols-3 gap-6 mb-12">
                      {stats.map((stat, index) => (

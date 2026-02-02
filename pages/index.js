@@ -160,8 +160,8 @@ export default function Home() {
         <HowItWorksSection />
         <ProgramsSection />
         <TestimonialsSection />
-        {/* <ReachSection /> */}
-        <OptionsSection />
+
+        
         <BridgeSectionFAQ />
         <FAQSection />
         <FinalCTASection />
