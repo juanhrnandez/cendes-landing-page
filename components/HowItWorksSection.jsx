@@ -1,314 +1,193 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import AnimatedSection from '@/components/AnimatedSection';
+import { motion, AnimatePresence } from 'framer-motion';
 import { howItWorksSteps } from '@/lib/constants';
-import { GraduationCap, Users, Theater, BookOpen, Award, ChevronRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { GraduationCap, Users, Theater, BookOpen, Award, CheckCircle2, ChevronRight } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
+
+const iconMap = {
+    GraduationCap,
+    Users,
+    Theater,
+    BookOpen,
+    Award,
+};
 
 export default function HowItWorksSection() {
     const [activeStep, setActiveStep] = useState(0);
     const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-    const iconMap = {
-        GraduationCap,
-        Users,
-        Theater,
-        BookOpen,
-        Award,
-    };
-
-    // Auto-advance steps
+    // Auto-advance
     useEffect(() => {
         if (!isAutoPlaying) return;
-        
         const interval = setInterval(() => {
             setActiveStep((prev) => (prev + 1) % howItWorksSteps.length);
-        }, 3000);
-
+        }, 4000); // 4 seconds per step
         return () => clearInterval(interval);
     }, [isAutoPlaying]);
 
+    // Manual interaction pauses auto-play
+    const handleStepClick = (index) => {
+        setActiveStep(index);
+        setIsAutoPlaying(false);
+    };
+
     return (
-        <section id="how-it-works" className="section-cendes bg-gradient-to-br from-gray-50 via-white to-purple-50/30">
-            <div className="container-cendes">
-                <AnimatedSection>
-                    <div className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 rounded-full bg-purple-100 px-4 py-2 mb-6">
-                            <Theater className="h-4 w-4 text-purple-600" />
-                            <span className="text-xs font-semibold text-purple-600 uppercase tracking-wide">
-                                Proceso Simple
+        <section id="how-it-works" className="py-24 bg-[#F9FAFB] relative overflow-hidden">
+            {/* Background Decorations */}
+            <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-white to-[#F9FAFB]" />
+            <div className="absolute right-0 top-40 h-[400px] w-[400px] bg-[#B4B651]/5 rounded-full blur-[100px]" />
+            <div className="absolute left-0 bottom-40 h-[400px] w-[400px] bg-[#C47440]/5 rounded-full blur-[100px]" />
+
+            <div className="container-cendes relative z-10 px-6">
+                <div className="text-center max-w-3xl mx-auto mb-16">
+                    <motion.div
+                        initial={{ opacity: 0, y: 15 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                         <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 border border-gray-200 shadow-sm mb-6">
+                            <span className="flex h-2 w-2 relative">
+                                <span className="absolute inline-flex h-full w-full rounded-full bg-[#B4B651] opacity-75 animate-ping"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#B4B651]"></span>
+                            </span>
+                            <span className="text-xs font-bold text-gray-600 uppercase tracking-widest">
+                                Metodología Probada
                             </span>
                         </div>
-                        <h2 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 bg-clip-text text-transparent">
-                            ¿Cómo Funciona?
+                        <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 leading-tight">
+                            Implementación simple, <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C47440] to-[#A85F33]">resultados profundos.</span>
                         </h2>
-                        <p className="mx-auto max-w-3xl text-xl text-gray-600 leading-relaxed">
-                            Un proceso efectivo en 5 pasos para transformar tu comunidad escolar
+                        <p className="text-lg text-gray-600 leading-relaxed">
+                            Diseñamos un proceso de 5 pasos que blinda a tu comunidad. <br className="hidden md:block"/>
+                            <span className="text-sm text-gray-400 mt-2 block">(Haz clic en cada paso para ver detalles)</span>
                         </p>
-                    </div>
-                </AnimatedSection>
-
-                {/* Desktop: Interactive Horizontal Timeline */}
-                <div className="hidden lg:block">
-                    <div className="relative max-w-6xl mx-auto">
-                        {/* Connecting Line with Progress */}
-                        <div className="absolute left-0 right-0 top-12 h-2 bg-gray-200 rounded-full overflow-hidden">
-                            <motion.div 
-                                className="h-full bg-gradient-to-r from-[#C47440] via-[#B4B651] to-[#6A6A6A]"
-                                initial={{ width: '0%' }}
-                                animate={{ width: `${((activeStep + 1) / howItWorksSteps.length) * 100}%` }}
-                                transition={{ duration: 0.5, ease: 'easeInOut' }}
-                            />
-                        </div>
-
-                        {/* Steps */}
-                        <div className="relative grid grid-cols-5 gap-4 mb-12">
-                            {howItWorksSteps.map((step, index) => {
-                                const Icon = iconMap[step.icon];
-                                const isActive = index === activeStep;
-                                const isPast = index < activeStep;
-                                
-                                return (
-                                    <div 
-                                        key={index}
-                                        className="flex flex-col items-center cursor-pointer"
-                                        onClick={() => {
-                                            setActiveStep(index);
-                                            setIsAutoPlaying(false);
-                                        }}
-                                        onMouseEnter={() => setIsAutoPlaying(false)}
-                                        onMouseLeave={() => setIsAutoPlaying(true)}
-                                    >
-                                        {/* Icon Circle with animations */}
-                                        <motion.div 
-                                            className={`group relative z-10 mb-6 flex h-24 w-24 items-center justify-center rounded-full shadow-xl transition-all duration-500 ${
-                                                isActive 
-                                                    ? 'bg-gradient-to-br from-[#C47440] to-[#B4B651] scale-110' 
-                                                    : isPast 
-                                                    ? 'bg-gradient-to-br from-[#D89060] to-[#C8CA6F]'
-                                                    : 'bg-gray-300'
-                                            }`}
-                                            whileHover={{ scale: 1.15, rotate: 5 }}
-                                            animate={isActive ? { 
-                                                scale: [1.1, 1.15, 1.1],
-                                            } : {}}
-                                            transition={{ 
-                                                duration: 1.5, 
-                                                repeat: isActive ? Infinity : 0,
-                                                ease: 'easeInOut'
-                                            }}
-                                        >
-                                            <Icon className={`h-12 w-12 transition-all duration-300 ${
-                                                isActive || isPast ? 'text-white' : 'text-gray-500'
-                                            }`} />
-
-                                            {/* Step Number Badge */}
-                                            <div className={`absolute -top-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold shadow-lg ring-2 ring-white transition-all duration-300 ${
-                                                isActive 
-                                                    ? 'bg-gradient-to-br from-[#C47440] to-[#B4B651] text-white scale-110' 
-                                                    : isPast
-                                                    ? 'bg-[#C47440] text-white'
-                                                    : 'bg-white text-gray-400'
-                                            }`}>
-                                                {index + 1}
-                                            </div>
-
-                                            {/* Animated rings for active step */}
-                                            {isActive && (
-                                                <>
-                                                    <motion.div 
-                                                        className="absolute inset-0 rounded-full border-4 border-[#C47440]"
-                                                        animate={{ 
-                                                            scale: [1, 1.3, 1],
-                                                            opacity: [0.5, 0, 0.5]
-                                                        }}
-                                                        transition={{ 
-                                                            duration: 2, 
-                                                            repeat: Infinity,
-                                                            ease: 'easeInOut'
-                                                        }}
-                                                    />
-                                                    <motion.div 
-                                                        className="absolute inset-0 rounded-full border-4 border-[#B4B651]"
-                                                        animate={{ 
-                                                            scale: [1, 1.4, 1],
-                                                            opacity: [0.5, 0, 0.5]
-                                                        }}
-                                                        transition={{ 
-                                                            duration: 2, 
-                                                            repeat: Infinity,
-                                                            ease: 'easeInOut',
-                                                            delay: 0.5
-                                                        }}
-                                                    />
-                                                </>
-                                            )}
-
-                                            {/* Checkmark for completed steps */}
-                                            {isPast && (
-                                                <motion.div 
-                                                    className="absolute -bottom-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-green-500 shadow-lg"
-                                                    initial={{ scale: 0 }}
-                                                    animate={{ scale: 1 }}
-                                                    transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-                                                >
-                                                    <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                                                    </svg>
-                                                </motion.div>
-                                            )}
-                                        </motion.div>
-
-                                        {/* Title */}
-                                        <h3 className={`text-center text-lg font-bold transition-all duration-300 ${
-                                            isActive ? 'text-[#C47440] scale-105' : 'text-gray-700'
-                                        }`}>
-                                            {step.title}
-                                        </h3>
-                                    </div>
-                                );
-                            })}
-                        </div>
-
-                        {/* Active Step Detail Card */}
-                        <motion.div
-                            key={activeStep}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white via-[#F5EFE7]/50 to-[#F0F4E8]/50 p-8 shadow-2xl border border-[#C47440]/20"
-                        >
-                            <div className="flex items-start gap-6">
-                                <div className="flex-shrink-0">
-                                    {(() => {
-                                        const Icon = iconMap[howItWorksSteps[activeStep].icon];
-                                        return (
-                                            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#C47440] to-[#B4B651] shadow-lg">
-                                                <Icon className="h-8 w-8 text-white" />
-                                            </div>
-                                        );
-                                    })()}
-                                </div>
-                                <div className="flex-1">
-                                    <div className="flex items-center gap-3 mb-4">
-                                        <h3 className="text-3xl font-bold text-gray-900">
-                                            {howItWorksSteps[activeStep].title}
-                                        </h3>
-                                        <span className="px-3 py-1 rounded-full bg-[#F5EFE7] text-[#C47440] text-sm font-semibold">
-                                            Paso {activeStep + 1} de {howItWorksSteps.length}
-                                        </span>
-                                    </div>
-                                    <p className="text-xl text-gray-700 leading-relaxed">
-                                        {howItWorksSteps[activeStep].description}
-                                    </p>
-                                </div>
-                                {activeStep < howItWorksSteps.length - 1 && (
-                                    <button
-                                        onClick={() => setActiveStep((prev) => prev + 1)}
-                                        className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-br from-[#C47440] to-[#B4B651] text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
-                                    >
-                                        <ChevronRight className="h-6 w-6" />
-                                    </button>
-                                )}
-                            </div>
-                            
-                            {/* Progress indicator */}
-                            <div className="mt-6 flex gap-2">
-                                {howItWorksSteps.map((_, index) => (
-                                    <button
-                                        key={index}
-                                        onClick={() => setActiveStep(index)}
-                                        className={`h-2 rounded-full transition-all duration-300 ${
-                                            index === activeStep 
-                                                ? 'w-12 bg-gradient-to-r from-[#C47440] to-[#B4B651]' 
-                                                : 'w-2 bg-gray-300 hover:bg-gray-400'
-                                        }`}
-                                    />
-                                ))}
-                            </div>
-                        </motion.div>
-                    </div>
+                    </motion.div>
                 </div>
 
-                {/* Mobile: Vertical Timeline */}
-                <div className="lg:hidden">
-                    <div className="relative space-y-8">
-                        {/* Vertical Line */}
-                        <div className="absolute left-6 top-0 bottom-0 w-1 bg-gray-200 rounded-full overflow-hidden">
-                            <motion.div 
-                                className="w-full bg-gradient-to-b from-[#C47440] via-[#B4B651] to-[#6A6A6A]"
-                                initial={{ height: '0%' }}
-                                animate={{ height: `${((activeStep + 1) / howItWorksSteps.length) * 100}%` }}
-                                transition={{ duration: 0.5 }}
-                            />
-                        </div>
+                {/* Interactive Timeline Container */}
+                <div className="relative max-w-5xl mx-auto">
+                    
+                    {/* Progress Bar (Desktop) */}
+                    <div className="hidden lg:block absolute top-[48px] left-[60px] right-[60px] h-1 bg-gray-100 rounded-full overflow-hidden">
+                        <motion.div 
+                            className="h-full bg-gradient-to-r from-[#C47440] to-[#B4B651]"
+                            initial={{ width: '0%' }}
+                            animate={{ width: `${(activeStep / (howItWorksSteps.length - 1)) * 100}%` }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                        />
+                    </div>
 
-                        {/* Steps */}
+                    {/* Steps Row */}
+                    <div className="grid grid-cols-1 md:grid-cols-5 gap-4 lg:gap-8 mb-12">
                         {howItWorksSteps.map((step, index) => {
                             const Icon = iconMap[step.icon];
                             const isActive = index === activeStep;
                             const isPast = index < activeStep;
-                            
+
                             return (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: index * 0.1 }}
-                                    className="relative flex items-start gap-6 pl-2"
-                                    onClick={() => setActiveStep(index)}
+                                <div 
+                                    key={index} 
+                                    className="flex flex-col items-center relative z-10 cursor-pointer group"
+                                    onClick={() => handleStepClick(index)}
                                 >
                                     {/* Icon Circle */}
-                                    <motion.div 
-                                        className={`group relative z-10 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full shadow-lg transition-all duration-300 ${
-                                            isActive 
-                                                ? 'bg-gradient-to-br from-[#C47440] to-[#B4B651] scale-110' 
-                                                : isPast 
-                                                ? 'bg-gradient-to-br from-[#D89060] to-[#C8CA6F]'
-                                                : 'bg-gray-300'
-                                        }`}
-                                        animate={isActive ? { scale: [1.1, 1.2, 1.1] } : {}}
-                                        transition={{ duration: 1.5, repeat: isActive ? Infinity : 0 }}
-                                    >
-                                        <Icon className={`h-6 w-6 ${isActive || isPast ? 'text-white' : 'text-gray-500'}`} />
-
-                                        {/* Step Number Badge */}
-                                        <div className={`absolute -top-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold shadow ring-2 ring-white ${
-                                            isActive || isPast ? 'bg-[#C47440] text-white' : 'bg-white text-gray-400'
-                                        }`}>
+                                    <div className={cn(
+                                        "h-24 w-24 rounded-2xl flex items-center justify-center transition-all duration-500 shadow-lg border relative mb-4",
+                                        isActive 
+                                            ? "bg-[#C47440] border-[#C47440] text-white scale-110 shadow-xl shadow-[#C47440]/20" 
+                                            : isPast 
+                                                ? "bg-white border-[#B4B651] text-[#B4B651]" 
+                                                : "bg-white border-gray-100 text-gray-300 hover:border-gray-200"
+                                    )}>
+                                         {/* Ripple effect for active */}
+                                        {isActive && (
+                                            <span className="absolute inset-0 rounded-2xl ring-2 ring-[#C47440] ring-offset-2 animate-pulse" />
+                                        )}
+                                        
+                                        <Icon className="h-10 w-10 relative z-10 transition-transform duration-300" strokeWidth={1.5} />
+                                        
+                                        {/* Number Badge */}
+                                        <div className={cn(
+                                            "absolute -top-3 right-1/2 translate-x-[24px] z-20 h-6 w-6 rounded-full text-xs font-bold flex items-center justify-center border-2 border-white shadow-sm transition-colors",
+                                            isActive || isPast ? "bg-[#B4B651] text-white" : "bg-gray-200 text-gray-500"
+                                        )}>
                                             {index + 1}
                                         </div>
+                                    </div>
 
-                                        {/* Checkmark for past steps */}
-                                        {isPast && (
-                                            <div className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-green-500">
-                                                <svg className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                                                </svg>
-                                            </div>
-                                        )}
-                                    </motion.div>
-
-                                    {/* Content Card */}
-                                    <motion.div 
-                                        className={`flex-1 rounded-2xl p-6 shadow-md transition-all duration-300 ${
-                                            isActive 
-                                                ? 'bg-gradient-to-br from-[#F5EFE7] to-[#F0F4E8] shadow-xl border-2 border-[#C47440]/30' 
-                                                : 'bg-white border border-gray-200'
-                                        }`}
-                                    >
-                                        <h3 className={`mb-2 text-lg font-bold ${isActive ? 'text-[#C47440]' : 'text-gray-900'}`}>
-                                            {step.title}
-                                        </h3>
-                                        <p className="text-sm leading-relaxed text-gray-600">{step.description}</p>
-                                    </motion.div>
-                                </motion.div>
+                                    {/* Label (Always visible on Desktop) */}
+                                    <span className={cn(
+                                        "text-sm font-bold transition-colors duration-300 hidden md:block",
+                                        isActive ? "text-[#C47440]" : "text-gray-400 group-hover:text-gray-600"
+                                    )}>
+                                        {step.title}
+                                    </span>
+                                </div>
                             );
                         })}
                     </div>
+
+                    {/* Active Step Details Card */}
+                    <div className="max-w-2xl mx-auto min-h-[180px]">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={activeStep}
+                                initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{ opacity: 0, y: -10, scale: 0.98 }}
+                                transition={{ duration: 0.3 }}
+                            >
+                                <Card className="border-0 shadow-xl bg-white relative overflow-hidden">
+                                    <div className="absolute top-0 left-0 w-1 h-full bg-[#C47440]" />
+                                    <CardContent className="p-8 text-center md:text-left md:flex md:items-center md:gap-8">
+                                        <div className="bg-[#FFF8F3] p-4 rounded-full mb-4 md:mb-0 inline-flex md:hidden">
+                                            {/* Mobile only icon showing current step */}
+                                            {(() => {
+                                                const ActiveIcon = iconMap[howItWorksSteps[activeStep].icon];
+                                                return <ActiveIcon className="h-8 w-8 text-[#C47440]" />;
+                                            })()}
+                                        </div>
+                                        
+                                        <div className="flex-1">
+                                            <h3 className="text-2xl font-bold text-gray-900 mb-3 flex items-center justify-center md:justify-start gap-3">
+                                                {howItWorksSteps[activeStep].title}
+                                                <ChevronRight className="h-5 w-5 text-gray-300 hidden md:block" />
+                                            </h3>
+                                            <p className="text-lg text-gray-600 leading-relaxed">
+                                                {howItWorksSteps[activeStep].description}
+                                            </p>
+                                        </div>
+
+                                        {/* Action Hint */}
+                                        <div className="hidden md:flex flex-col items-center justify-center pl-6 border-l border-gray-100">
+                                            <span className="text-4xl font-black text-gray-100">0{activeStep + 1}</span>
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
                 </div>
+
+                {/* Bottom Note */}
+                <motion.div 
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5 }}
+                    className="mt-16 text-center"
+                >
+                    <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#E5F6E8] border border-[#CDEED3] text-[#2A6E3B]">
+                        <CheckCircle2 className="h-4 w-4" />
+                        <span className="text-sm font-semibold">Tiempo total de implementación: 2 a 4 semanas</span>
+                    </div>
+                </motion.div>
             </div>
         </section>
     );
 }
+

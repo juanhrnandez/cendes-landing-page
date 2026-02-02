@@ -1,135 +1,135 @@
 'use client';
 
-import AnimatedSection from '@/components/AnimatedSection';
-import { Theater, Users, Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Theater, Users, Lightbulb, HeartHandshake } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
 
 export default function SolutionSection() {
     return (
-        <section id="solution" className="relative overflow-hidden section-cendes bg-gradient-to-br from-[#F3E8FF] via-[#FAF5FF] to-[#EDE9FE]">
-            {/* Decorative background elements */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute -top-24 -right-24 w-96 h-96 bg-[var(--color-primary)] opacity-5 rounded-full blur-3xl animate-pulse-slow"></div>
-                <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-[var(--color-accent)] opacity-5 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1.5s' }}></div>
-            </div>
+        <section id="solution" className="py-24 bg-white relative overflow-hidden">
+            {/* Background Texture */}
+            <div className="absolute inset-0 bg-[#F9F9F9] opacity-50" />
+            <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.02]" />
 
-            <div className="container-cendes relative z-10">
-                <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-stretch">
-                    {/* Left Column: Text Content */}
-                    <AnimatedSection direction="left">
-                        <div className="space-y-6">
-                            {/* Badge */}
-                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-[var(--color-primary)]/20 shadow-sm">
-                                <Sparkles className="w-4 h-4 text-[var(--color-primary)]" />
-                                <span className="text-sm font-semibold text-[var(--color-primary)]">10 años transformando vidas</span>
+            <div className="container-cendes relative z-10 px-6">
+                <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+                    
+                    {/* Left Side - Visual Composition */}
+                    <motion.div 
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="relative"
+                    >
+                         {/* Main Image Layer */}
+                        <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white aspect-[4/5] max-w-md mx-auto lg:max-w-full">
+                            <img 
+                                src="/images/teatro-cendes.jpg" 
+                                alt="Obra de teatro profesional CENDES" 
+                                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                            />
+                            {/* Overlay Gradient */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                            
+                            {/* Floating Stats Card */}
+                            <div className="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-lg border border-white/50">
+                                <p className="text-[#C47440] font-bold text-sm uppercase tracking-wider mb-1">Nuestra Metodología</p>
+                                <p className="text-gray-900 font-medium text-lg leading-snug">
+                                    "El arte abre puertas que las conferencias no pueden tocar."
+                                </p>
                             </div>
+                        </div>
 
-                            {/* Title with gradient */}
-                            <h2 className="text-4xl font-bold md:text-5xl lg:text-6xl leading-tight">
-                                ¿Qué es{' '}
-                                <span className="gradient-text">CENDES</span>?
+                         {/* Decorative Element Behind */}
+                        <div className="absolute -top-6 -left-6 w-full h-full rounded-[2.5rem] border-2 border-[#C47440]/10 -z-10" />
+                        <div className="absolute -bottom-6 -right-6 w-full h-full rounded-[2.5rem] bg-[#F5EFE7] -z-20" />
+                    </motion.div>
+
+                    {/* Right Side - Content */}
+                    <div className="space-y-10">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                        >
+                            <div className="inline-flex items-center gap-2 rounded-full bg-[#E5F6E8] px-4 py-1.5 border border-[#CDEED3] mb-6">
+                                <span className="text-xs font-bold text-[#2A6E3B] uppercase tracking-widest">
+                                    Solución Probada
+                                </span>
+                            </div>
+                            
+                            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 leading-[1.1]">
+                                ¿Qué es <span className="text-[#C47440] inline-block relative">
+                                    CENDES
+                                    <svg className="absolute w-full h-3 -bottom-1 left-0 text-[#C47440]/20" viewBox="0 0 100 10" preserveAspectRatio="none">
+                                        <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="4" fill="none" />
+                                    </svg>
+                                </span>?
                             </h2>
+                            
+                            <p className="text-xl text-gray-600 leading-relaxed font-light">
+                                Somos el <strong className="text-gray-900 font-bold">Centro Nacional de Prevención y Fortalecimiento</strong> ante la violencia sexual infantil y adolescente.  
+                            </p>
+                            <p className="text-lg text-gray-600 leading-relaxed mt-4">
+                                Transformamos la prevención en una experiencia inolvidable. No damos pláticas; creamos momentos que <strong className="text-[#C47440]">conectan, educan y protegen</strong>.
+                            </p>
+                        </motion.div>
 
-                            {/* Description paragraphs with enhanced styling */}
-                            <div className="space-y-4">
-                                <p className="text-lg leading-relaxed text-gray-700 md:text-xl">
-                                    CENDES es el <span className="font-bold text-[var(--color-primary)]">Centro Nacional de prevención y fortalecimiento</span> ante
-                                    la violencia sexual <span className="font-bold text-[var(--color-primary)]">infantil y adolescente</span> a través del arte.
-                                </p>
-                                <p className="text-lg leading-relaxed text-gray-700 md:text-xl">
-                                    Durante 10 años hemos llevado <span className="font-semibold text-[var(--color-accent)]">teatro, monólogo y cine profesional</span> a más de{' '}
-                                    <span className="font-bold text-[var(--color-primary)]">2,000 escuelas</span> en México y España,
-                                    alcanzando a más de <span className="font-bold text-[var(--color-primary)]">100,000 personas</span>.
-                                </p>
-                                <p className="text-lg leading-relaxed text-gray-700 md:text-xl font-medium">
-                                    No damos "pláticas aburridas". Creamos{' '}
-                                    <span className="font-bold text-[var(--color-highlight)]">experiencias artísticas</span>{' '}
-                                    que tocan el corazón y abren conversaciones reales.
-                                </p>
-                            </div>
-
-                            {/* Enhanced Feature Cards */}
-                            <div className="grid gap-5 md:grid-cols-2 pt-4">
-                                {/* Arte Profesional Card */}
-                                <div className="group relative overflow-hidden bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                                    {/* Gradient overlay on hover */}
-                                    <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                                    <div className="relative z-10 flex flex-col gap-4">
-                                        {/* Animated icon container */}
-                                        <div className="relative">
-                                            <div className="absolute inset-0 bg-[var(--color-primary)] rounded-full blur-md opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
-                                            <div className="relative rounded-full bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-dark)] p-3.5 w-fit group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
-                                                <Theater className="h-6 w-6 text-white" />
-                                            </div>
+                        <div className="grid sm:grid-cols-2 gap-6">
+                            <motion.div 
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.2 }}
+                            >
+                                <Card className="border-0 shadow-lg bg-white h-full hover:bg-[#FDFBF7] transition-colors group">
+                                    <CardContent className="p-6 space-y-4">
+                                        <div className="h-12 w-12 rounded-2xl bg-[#C47440]/10 flex items-center justify-center group-hover:bg-[#C47440] transition-colors duration-300">
+                                            <Theater className="h-6 w-6 text-[#C47440] group-hover:text-white transition-colors" />
                                         </div>
-
                                         <div>
-                                            <h3 className="mb-2 text-xl font-bold text-gray-900 group-hover:text-[var(--color-primary)] transition-colors duration-300">
-                                                Arte Profesional
-                                            </h3>
-                                            <p className="text-gray-700 leading-relaxed">
-                                                Obras escritas y dirigidas por especialistas.
-                                                No es teatro escolar, es teatro de calidad
-                                                con mensaje de protección.
+                                            <h3 className="text-lg font-bold text-gray-900 mb-2">Arte Profesional</h3>
+                                            <p className="text-sm text-gray-600 leading-relaxed">
+                                                Teatro, cine y monólogos diseñados por expertos para captar la atención real de los estudiantes.
                                             </p>
                                         </div>
-                                    </div>
-                                </div>
+                                    </CardContent>
+                                </Card>
+                            </motion.div>
 
-                                {/* Toda la Comunidad Card */}
-                                <div className="group relative overflow-hidden bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2" style={{ animationDelay: '0.1s' }}>
-                                    {/* Gradient overlay on hover */}
-                                    <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-accent)]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                                    <div className="relative z-10 flex flex-col gap-4">
-                                        {/* Animated icon container */}
-                                        <div className="relative">
-                                            <div className="absolute inset-0 bg-[var(--color-accent)] rounded-full blur-md opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
-                                            <div className="relative rounded-full bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-dark)] p-3.5 w-fit group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
-                                                <Users className="h-6 w-6 text-white" />
-                                            </div>
+                            <motion.div 
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.3 }}
+                            >
+                                <Card className="border-0 shadow-lg bg-white h-full hover:bg-[#FDFBF7] transition-colors group">
+                                    <CardContent className="p-6 space-y-4">
+                                        <div className="h-12 w-12 rounded-2xl bg-[#B4B651]/10 flex items-center justify-center group-hover:bg-[#B4B651] transition-colors duration-300">
+                                            <Users className="h-6 w-6 text-[#9A9B42] group-hover:text-white transition-colors" />
                                         </div>
-
                                         <div>
-                                            <h3 className="mb-2 text-xl font-bold text-gray-900 group-hover:text-[var(--color-accent)] transition-colors duration-300">
-                                                Toda la Comunidad
-                                            </h3>
-                                            <p className="text-gray-700 leading-relaxed">
-                                                Capacitamos a docentes, familias y estudiantes.
-                                                Porque la prevención se construye entre todos.
+                                            <h3 className="text-lg font-bold text-gray-900 mb-2">Impacto Integral</h3>
+                                            <p className="text-sm text-gray-600 leading-relaxed">
+                                                No solo trabajamos con alumnos; involucramos a docentes y padres para blindar la comunidad.
                                             </p>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
+                                    </CardContent>
+                                </Card>
+                            </motion.div>
                         </div>
-                    </AnimatedSection>
-
-                    {/* Right Column: Enhanced Image */}
-                    <AnimatedSection direction="right" className="flex">
-                        <div className="relative w-full min-h-[400px] lg:min-h-[600px]">
-                            {/* Decorative gradient border */}
-                            <div className="absolute -inset-1 bg-gradient-to-br from-[var(--color-primary)] via-[var(--color-accent)] to-[var(--color-highlight)] rounded-3xl opacity-20 blur-xl animate-pulse-slow"></div>
-
-                            {/* Image container with floating animation */}
-                            <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl hover:shadow-[0_25px_50px_-12px_rgba(124,58,237,0.25)] transition-all duration-700 group">
-                                <img
-                                    src="/images/cendes.jpg"
-                                    alt="Equipo CENDES"
-                                    className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                />
-
-                                {/* Overlay gradient on hover */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-primary)]/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            </div>
-
-                            {/* Floating decorative elements */}
-                            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[var(--color-highlight)] rounded-full opacity-10 blur-2xl animate-pulse-slow" style={{ animationDelay: '0.5s' }}></div>
-                            <div className="absolute -top-6 -left-6 w-24 h-24 bg-[var(--color-accent)] rounded-full opacity-10 blur-2xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+                        
+                        {/* Quote or Bottom Line */}
+                        <div className="border-l-4 border-[#C47440] pl-6 py-2">
+                             <p className="text-gray-500 italic">
+                                "La educación emocional es la vacuna contra la violencia."
+                            </p>
                         </div>
-                    </AnimatedSection>
+                    </div>
                 </div>
             </div>
         </section>
     );
 }
+
