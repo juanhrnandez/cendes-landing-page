@@ -8,7 +8,7 @@ export default function Card({
     theme,
     ageRange,
     format,
-    gradient = "from-purple-500 to-pink-500",
+    gradient = "from-[#C47440] to-[#B4B651]",
     className = ''
 }) {
     // Determine icon based on format

@@ -7,10 +7,10 @@ import { Heart, Shield, Users, Mail, Phone, Quote } from 'lucide-react';
 
 export default function FinalCTASection() {
     return (
-        <section id="final-cta" className="relative py-20 md:py-28 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 overflow-hidden">
+        <section id="final-cta" className="relative py-20 md:py-28 bg-gradient-to-br from-gray-900 via-[#6A6A6A] to-gray-900 overflow-hidden">
             {/* Decorative elements */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(168,85,247,0.15),transparent_50%)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(34,211,238,0.1),transparent_50%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(196,116,64,0.15),transparent_50%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(180,182,81,0.1),transparent_50%)]" />
             
             <div className="container-cendes relative z-10">
                 {/* Hero Message with Founder */}
@@ -18,9 +18,9 @@ export default function FinalCTASection() {
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
                         {/* Text Content */}
                         <div className="text-center lg:text-left order-2 lg:order-1">
-                            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/20 border border-purple-400/30 mb-6">
-                                <Heart className="h-4 w-4 text-purple-400" />
-                                <span className="text-sm font-semibold text-purple-300">Un mensaje de nuestra fundadora</span>
+                            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#C47440]/20 border border-[#C47440]/30 mb-6">
+                                <Heart className="h-4 w-4 text-[#D89060]" />
+                                <span className="text-sm font-semibold text-[#D89060]">Un mensaje de nuestra fundadora</span>
                             </div>
                             
                             <h2 className="mb-6 text-4xl font-bold leading-tight text-white md:text-5xl ">
@@ -29,7 +29,7 @@ export default function FinalCTASection() {
                             </h2>
                             
                             <div className="relative mb-8">
-                                <Quote className="absolute -top-4 -left-2 h-8 w-8 text-purple-400/30" />
+                                <Quote className="absolute -top-4 -left-2 h-8 w-8 text-[#C47440]/30" />
                                 <p className="text-lg md:text-xl text-gray-300 leading-relaxed pl-8 italic">
                                     "Cada escuela que se une a CENDES es un paso más hacia una infancia libre de violencia. 
                                     Más de 2,000 escuelas ya lo hicieron. El momento es ahora."
@@ -38,7 +38,7 @@ export default function FinalCTASection() {
                             
                             <div className="mb-6">
                                 <p className="text-white font-bold text-lg">Carolina López</p>
-                                <p className="text-purple-300">Fundadora y Directora de CENDES</p>
+                                <p className="text-[#D89060]">Fundadora y Directora de CENDES</p>
                             </div>
                             
                             <Button variant="large" size="xlarge" href="https://registro.cendes.org/">
@@ -50,7 +50,7 @@ export default function FinalCTASection() {
                         <div className="order-1 lg:order-2">
                             <div className="relative">
                                 {/* Decorative elements around image */}
-                                <div className="absolute -inset-4 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-3xl blur-2xl" />
+                                <div className="absolute -inset-4 bg-gradient-to-br from-[#C47440]/20 to-[#B4B651]/20 rounded-3xl blur-2xl" />
                                 
                                 <div className="relative rounded-3xl overflow-hidden border-4 border-white/10 shadow-2xl">
                                     <Image
@@ -68,7 +68,7 @@ export default function FinalCTASection() {
                                 {/* Floating badge */}
                                 <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-4 shadow-xl">
                                     <div className="flex items-center gap-3">
-                                        <div className="bg-gradient-to-br from-purple-500 to-cyan-500 rounded-full p-3">
+                                        <div className="bg-gradient-to-br from-[#C47440] to-[#B4B651] rounded-full p-3">
                                             <Users className="h-6 w-6 text-white" />
                                         </div>
                                         <div className="text-left">
@@ -86,17 +86,17 @@ export default function FinalCTASection() {
                 <AnimatedSection delay={0.2}>
                     <div className="grid gap-6 md:grid-cols-3 mb-16">
                         <div className="rounded-2xl bg-white/5 backdrop-blur-sm p-6 border border-white/10 hover:bg-white/10 transition-all">
-                            <Heart className="mx-auto mb-4 h-10 w-10 text-purple-400" />
+                            <Heart className="mx-auto mb-4 h-10 w-10 text-[#C47440]" />
                             <h3 className="mb-2 text-xl font-bold text-white">2 minutos</h3>
                             <p className="text-sm text-gray-400">Proceso rápido y sencillo</p>
                         </div>
                         <div className="rounded-2xl bg-white/5 backdrop-blur-sm p-6 border border-white/10 hover:bg-white/10 transition-all">
-                            <Shield className="mx-auto mb-4 h-10 w-10 text-cyan-400" />
+                            <Shield className="mx-auto mb-4 h-10 w-10 text-[#B4B651]" />
                             <h3 className="mb-2 text-xl font-bold text-white">Sin compromiso</h3>
                             <p className="text-sm text-gray-400">Conoce sin obligación</p>
                         </div>
                         <div className="rounded-2xl bg-white/5 backdrop-blur-sm p-6 border border-white/10 hover:bg-white/10 transition-all">
-                            <Users className="mx-auto mb-4 h-10 w-10 text-purple-400" />
+                            <Users className="mx-auto mb-4 h-10 w-10 text-[#C47440]" />
                             <h3 className="mb-2 text-xl font-bold text-white">Respuesta en 24 horas</h3>
                             <p className="text-sm text-gray-400">Atención personalizada</p>
                         </div>
@@ -114,12 +114,12 @@ export default function FinalCTASection() {
                                 href="mailto:carolina.lopez@cendes.org"
                                 className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all group"
                             >
-                                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center group-hover:bg-purple-500/30 transition-colors">
-                                    <Mail className="h-6 w-6 text-purple-400" />
+                                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#C47440]/20 flex items-center justify-center group-hover:bg-[#C47440]/30 transition-colors">
+                                    <Mail className="h-6 w-6 text-[#D89060]" />
                                 </div>
                                 <div className="text-left">
                                     <div className="text-xs text-gray-400 mb-1">Email</div>
-                                    <div className="text-white font-medium group-hover:text-purple-300 transition-colors">
+                                    <div className="text-white font-medium group-hover:text-[#D89060] transition-colors">
                                         carolina.lopez@cendes.org
                                     </div>
                                 </div>
@@ -129,12 +129,12 @@ export default function FinalCTASection() {
                                 href="tel:+525527882274"
                                 className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all group"
                             >
-                                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center group-hover:bg-cyan-500/30 transition-colors">
-                                    <Phone className="h-6 w-6 text-cyan-400" />
+                                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#B4B651]/20 flex items-center justify-center group-hover:bg-[#B4B651]/30 transition-colors">
+                                    <Phone className="h-6 w-6 text-[#C8CA6F]" />
                                 </div>
                                 <div className="text-left">
                                     <div className="text-xs text-gray-400 mb-1">Teléfono</div>
-                                    <div className="text-white font-medium group-hover:text-cyan-300 transition-colors">
+                                    <div className="text-white font-medium group-hover:text-[#C8CA6F] transition-colors">
                                         55 2788 2274
                                     </div>
                                 </div>

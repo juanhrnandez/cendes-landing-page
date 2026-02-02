@@ -15,7 +15,7 @@ export default function HeroSection() {
                     className="h-full w-full object-cover"
                 />
                 {/* Dark Gradient Overlays for better text readability */}
-                <div className="absolute inset-0 bg-gradient-to-r from-gray-900/60 via-gray-900/70 to-purple-900/40" />
+                <div className="absolute inset-0 bg-gradient-to-r from-gray-900/60 via-gray-900/70 to-[#6A6A6A]/40" />
                 <div className="absolute inset-0 bg-gradient-to-b from-gray-900/60 via-transparent to-gray-900/80" />
             </div>
 
@@ -28,75 +28,74 @@ export default function HeroSection() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="lg:col-span-7 space-y-6 md:space-y-7"
+                        className="lg:col-span-7 space-y-8 md:space-y-10"
                     >
                         {/* Campaign Badge */}
-                        <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-500/20 to-cyan-500/20 px-5 py-2.5 border border-purple-400/50 shadow-lg backdrop-blur-md">
-                            <div className="h-2 w-2 rounded-full bg-purple-400 animate-pulse" />
-                            <span className="text-xs md:text-sm font-semibold uppercase tracking-wide text-purple-200">
+                        <div className="inline-flex items-center gap-3 rounded-full bg-white/10 px-6 py-2 border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.1)] backdrop-blur-md transition-all hover:bg-white/15 cursor-default">
+                            <span className="relative flex h-3 w-3">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C47440] opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-3 w-3 bg-[#C47440]"></span>
+                            </span>
+                            <span className="text-sm font-bold uppercase tracking-widest text-[#F5EFE7]">
                                 Campaña Nacional 2026
                             </span>
                         </div>
 
                         {/* Main Heading */}
-                        <div className="space-y-4 md:space-y-5">
-                            <h1 className="text-4xl font-extrabold leading-tight text-white sm:text-5xl md:text-6xl">
+                        <div className="space-y-6">
+                            <h1 className="text-5xl font-black leading-[1.1] text-white sm:text-6xl md:text-7xl tracking-tight drop-shadow-sm">
                                 Protege a tu{' '}
-                                <span className="relative inline-block">
-                                    <span className="relative z-10 bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                                <span className="relative inline-block whitespace-nowrap">
+                                    <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-[#D89060] to-[#E2E48A]">
                                         comunidad escolar
                                     </span>
-                                    <svg className="absolute -bottom-2 left-0 w-full hidden md:block" height="12" viewBox="0 0 300 12" fill="none">
-                                        <path d="M2 10C100 2 200 2 298 10" stroke="url(#gradient)" strokeWidth="3" strokeLinecap="round"/>
-                                        <defs>
-                                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                                <stop offset="0%" stopColor="#9333ea" />
-                                                <stop offset="100%" stopColor="#0891b2" />
-                                            </linearGradient>
-                                        </defs>
-                                    </svg>
+                                    {/* Decorative element behind text */}
+                                    <div className="absolute -inset-1 -z-0 bg-white/5 blur-lg rounded-full opacity-50 scale-110"></div>
                                 </span>
-                                <br />a través del arte
+                                <br />
+                                a través del <span className="text-white italic">arte</span>
                             </h1>
-                            <p className="text-lg text-gray-200 leading-relaxed md:text-xl">
+                            <p className="text-lg text-gray-200 leading-relaxed md:text-2xl font-light border-l-4 border-[#C47440] pl-6 max-w-2xl">
                                 Prevención profesional de violencia sexual, bullying y acoso
-                                para niñas, niños y adolescentes
+                                para niñas, niños y adolescentes.
                             </p>
                         </div>
 
-                        {/* Key Benefits Icons */}
-                        <div className="flex flex-wrap gap-4 md:gap-6">
-                            <div className="flex items-center gap-3">
-                                <div className="flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-full bg-purple-500/20 shadow-lg backdrop-blur-md border border-purple-400/30">
-                                    <Shield className="h-6 w-6 md:h-7 md:w-7 text-purple-300" />
+                        {/* Key Benefits Icons - Redesigned as glass cards */}
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div className="group flex sm:block items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/20 hover:translate-y-[-2px]">
+                                <div className="p-3 rounded-lg bg-[#C47440]/20 w-fit mb-0 sm:mb-3">
+                                    <Shield className="h-6 w-6 text-[#D89060] group-hover:scale-110 transition-transform" />
                                 </div>
                                 <div>
-                                    <p className="text-sm md:text-base font-semibold text-white">10 años</p>
-                                    <p className="text-xs md:text-sm text-gray-300">de experiencia</p>
+                                    <p className="text-2xl font-bold text-white tracking-tight">10 Años</p>
+                                    <p className="text-sm text-gray-300 font-medium">de experiencia</p>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-3">
-                                <div className="flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-full bg-cyan-500/20 shadow-lg backdrop-blur-md border border-cyan-400/30">
-                                    <Users className="h-6 w-6 md:h-7 md:w-7 text-cyan-300" />
+                            
+                            <div className="group flex sm:block items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/20 hover:translate-y-[-2px]">
+                                <div className="p-3 rounded-lg bg-[#B4B651]/20 w-fit mb-0 sm:mb-3">
+                                    <Users className="h-6 w-6 text-[#E2E48A] group-hover:scale-110 transition-transform" />
                                 </div>
                                 <div>
-                                    <p className="text-sm md:text-base font-semibold text-white">+500,000</p>
-                                    <p className="text-xs md:text-sm text-gray-300">personas impactadas</p>
+                                    <p className="text-2xl font-bold text-white tracking-tight">+500k</p>
+                                    <p className="text-sm text-gray-300 font-medium">personas impactadas</p>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-3">
-                                <div className="flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-full bg-pink-500/20 shadow-lg backdrop-blur-md border border-pink-400/30">
-                                    <Heart className="h-6 w-6 md:h-7 md:w-7 text-pink-300" />
+
+                            <div className="group flex sm:block items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/20 hover:translate-y-[-2px]">
+                                <div className="p-3 rounded-lg bg-[#6A6A6A]/20 w-fit mb-0 sm:mb-3">
+                                    <Heart className="h-6 w-6 text-gray-300 group-hover:scale-110 transition-transform" />
                                 </div>
                                 <div>
-                                    <p className="text-sm md:text-base font-semibold text-white">5 programas</p>
-                                    <p className="text-xs md:text-sm text-gray-300">especializados</p>
+                                    <p className="text-2xl font-bold text-white tracking-tight">5 Programas</p>
+                                    <p className="text-sm text-gray-300 font-medium">especializados</p>
                                 </div>
                             </div>
                         </div>
 
                         {/* CTA Button */}
-                        <div className="space-y-4 pt-2">
+                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
                             <Button variant="large" size="xlarge" href="https://registro.cendes.org/">
                                 Descubre qué programa es para tu escuela
                             </Button>
@@ -149,7 +148,7 @@ export default function HeroSection() {
                             transition={{ duration: 0.8, delay: 0.5 }}
                             className="rounded-3xl bg-white/10 backdrop-blur-xl p-8 shadow-2xl border border-white/20"
                         >
-                            <p className="text-5xl md:text-6xl font-bold text-purple-400 mb-2">+1,500</p>
+                            <p className="text-5xl md:text-6xl font-bold text-[#C47440] mb-2">+1,500</p>
                             <p className="text-base md:text-lg text-gray-200">Escuelas transformadas</p>
                         </motion.div>
 
@@ -159,7 +158,7 @@ export default function HeroSection() {
                             transition={{ duration: 0.8, delay: 0.7 }}
                             className="rounded-3xl bg-white/10 backdrop-blur-xl p-8 shadow-2xl border border-white/20"
                         >
-                            <p className="text-5xl md:text-6xl font-bold text-cyan-400 mb-2">100%</p>
+                            <p className="text-5xl md:text-6xl font-bold text-[#B4B651] mb-2">100%</p>
                             <p className="text-base md:text-lg text-gray-200">Escuelas satisfechas</p>
                         </motion.div>
 
@@ -167,7 +166,7 @@ export default function HeroSection() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.9 }}
-                            className="rounded-3xl bg-gradient-to-br from-purple-500 to-cyan-500 p-8 shadow-2xl text-white border border-white/20"
+                            className="rounded-3xl bg-gradient-to-br from-[#C47440] to-[#B4B651] p-8 shadow-2xl text-white border border-white/20"
                         >
                             <p className="text-5xl md:text-6xl font-bold mb-2">10+</p>
                             <p className="text-base md:text-lg">Años de experiencia transformando vidas</p>

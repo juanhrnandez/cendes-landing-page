@@ -18,18 +18,18 @@ export default function TestimonialsSection() {
     };
 
     return (
-        <section id="testimonials" className="relative py-16 md:py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 overflow-hidden">
+        <section id="testimonials" className="relative py-16 md:py-20 bg-gradient-to-br from-gray-900 via-[#6A6A6A] to-gray-900 overflow-hidden">
             {/* Decorative elements */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(168,85,247,0.15),transparent_50%)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(34,211,238,0.1),transparent_50%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(196,116,64,0.15),transparent_50%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(180,182,81,0.1),transparent_50%)]" />
             
             <div className="container-cendes relative z-10">
                 <AnimatedSection>
                     <div className="text-center mb-12">
                         <div className="inline-flex items-center justify-center mb-4">
-                            <Star className="h-8 w-8 text-cyan-400 fill-cyan-400" />
-                            <Star className="h-10 w-10 text-purple-400 fill-purple-400 mx-2" />
-                            <Star className="h-8 w-8 text-cyan-400 fill-cyan-400" />
+                            <Star className="h-8 w-8 text-[#B4B651] fill-[#B4B651]" />
+                            <Star className="h-10 w-10 text-[#C47440] fill-[#C47440] mx-2" />
+                            <Star className="h-8 w-8 text-[#B4B651] fill-[#B4B651]" />
                         </div>
                         <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl lg:text-5xl">
                             Lo que dicen las escuelas protectoras
@@ -43,7 +43,7 @@ export default function TestimonialsSection() {
                 {/* Video Section */}
                 <AnimatedSection>
                     <div className="mx-auto mb-16 max-w-5xl">
-                        <div className="relative aspect-video overflow-hidden rounded-3xl bg-gradient-to-br from-purple-900/50 to-cyan-900/50 shadow-2xl border border-white/10 backdrop-blur-sm">
+                        <div className="relative aspect-video overflow-hidden rounded-3xl bg-gradient-to-br from-[#6A6A6A]/50 to-[#B4B651]/50 shadow-2xl border border-white/10 backdrop-blur-sm">
                             <video
                                 controls
                                 className="h-full w-full object-cover"
@@ -52,8 +52,8 @@ export default function TestimonialsSection() {
                                 <source src="/videos/testimonials.mp4" type="video/mp4" />
                             </video>
                             {/* Decorative corner accents */}
-                            <div className="absolute top-0 left-0 w-20 h-20 border-l-4 border-t-4 border-purple-400/50 rounded-tl-3xl" />
-                            <div className="absolute bottom-0 right-0 w-20 h-20 border-r-4 border-b-4 border-cyan-400/50 rounded-br-3xl" />
+                            <div className="absolute top-0 left-0 w-20 h-20 border-l-4 border-t-4 border-[#C47440]/50 rounded-tl-3xl" />
+                            <div className="absolute bottom-0 right-0 w-20 h-20 border-r-4 border-b-4 border-[#B4B651]/50 rounded-br-3xl" />
                         </div>
                     </div>
                 </AnimatedSection>
@@ -72,7 +72,7 @@ export default function TestimonialsSection() {
                             {/* Quote card with modern glassmorphism */}
                             <div className="relative rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 overflow-hidden">
                                 {/* Gradient overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-cyan-500/10" />
+                                <div className="absolute inset-0 bg-gradient-to-br from-[#C47440]/10 via-transparent to-[#B4B651]/10" />
                                 
                                 {/* Quote icon background */}
                                 <div className="absolute -top-6 -right-6 opacity-10">
@@ -82,7 +82,7 @@ export default function TestimonialsSection() {
                                 <div className="relative z-10 p-8 md:p-12">
                                     {/* Quote content */}
                                     <div className="mb-8">
-                                        <Quote className="h-12 w-12 text-cyan-400 mb-4" />
+                                        <Quote className="h-12 w-12 text-[#B4B651] mb-4" />
                                         <p className="text-xl md:text-2xl leading-relaxed text-white/95 font-light italic">
                                             {testimonials[currentTestimonialIndex].quote}
                                         </p>
@@ -104,10 +104,10 @@ export default function TestimonialsSection() {
                                             <p className="font-bold text-white text-lg md:text-xl">
                                                 {testimonials[currentTestimonialIndex].name}
                                             </p>
-                                            <p className="text-sm md:text-base text-purple-300 font-medium">
+                                            <p className="text-sm md:text-base text-[#C8CA6F] font-medium">
                                                 {testimonials[currentTestimonialIndex].school}
                                             </p>
-                                            <p className="text-sm text-cyan-400/80">
+                                            <p className="text-sm text-[#B4B651]/80">
                                                 {testimonials[currentTestimonialIndex].location}
                                             </p>
                                         </div>
@@ -127,7 +127,7 @@ export default function TestimonialsSection() {
                     <div className="mt-10 flex items-center justify-center gap-6">
                         <button
                             onClick={prevTestimonial}
-                            className="rounded-full bg-white/10 p-3 md:p-4 backdrop-blur-sm border border-white/20 transition-all hover:bg-purple-600 hover:border-purple-500 hover:scale-110 active:scale-95"
+                            className="rounded-full bg-white/10 p-3 md:p-4 backdrop-blur-sm border border-white/20 transition-all hover:bg-[#C47440] hover:border-[#C47440] hover:scale-110 active:scale-95"
                             aria-label="Testimonio anterior"
                         >
                             <ChevronLeft className="h-5 w-5 md:h-6 md:w-6 text-white" />
@@ -141,7 +141,7 @@ export default function TestimonialsSection() {
                                     onClick={() => setCurrentTestimonialIndex(index)}
                                     className={`h-2.5 rounded-full transition-all duration-300 ${
                                         index === currentTestimonialIndex
-                                            ? 'w-10 bg-gradient-to-r from-purple-500 to-cyan-500'
+                                            ? 'w-10 bg-gradient-to-r from-[#C47440] to-[#B4B651]'
                                             : 'w-2.5 bg-white/30 hover:bg-white/50'
                                     }`}
                                     aria-label={`Ir a testimonio ${index + 1}`}
@@ -151,7 +151,7 @@ export default function TestimonialsSection() {
 
                         <button
                             onClick={nextTestimonial}
-                            className="rounded-full bg-white/10 p-3 md:p-4 backdrop-blur-sm border border-white/20 transition-all hover:bg-purple-600 hover:border-purple-500 hover:scale-110 active:scale-95"
+                            className="rounded-full bg-white/10 p-3 md:p-4 backdrop-blur-sm border border-white/20 transition-all hover:bg-[#C47440] hover:border-[#C47440] hover:scale-110 active:scale-95"
                             aria-label="Siguiente testimonio"
                         >
                             <ChevronRight className="h-5 w-5 md:h-6 md:w-6 text-white" />

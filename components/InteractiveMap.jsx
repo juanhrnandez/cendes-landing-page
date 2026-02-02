@@ -28,7 +28,7 @@ export default function InteractiveMap({ locations }) {
                             <div className="relative group">
                                 {/* Animated pulse ring */}
                                 <div 
-                                    className="absolute inset-0 -m-2 rounded-full bg-purple-500 opacity-20 animate-ping"
+                                    className="absolute inset-0 -m-2 rounded-full bg-[#C47440] opacity-20 animate-ping"
                                     style={{ animationDelay: `${index * 0.15}s` }}
                                 />
                                 

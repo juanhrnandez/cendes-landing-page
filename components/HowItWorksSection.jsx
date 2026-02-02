@@ -55,7 +55,7 @@ export default function HowItWorksSection() {
                         {/* Connecting Line with Progress */}
                         <div className="absolute left-0 right-0 top-12 h-2 bg-gray-200 rounded-full overflow-hidden">
                             <motion.div 
-                                className="h-full bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-600"
+                                className="h-full bg-gradient-to-r from-[#C47440] via-[#B4B651] to-[#6A6A6A]"
                                 initial={{ width: '0%' }}
                                 animate={{ width: `${((activeStep + 1) / howItWorksSteps.length) * 100}%` }}
                                 transition={{ duration: 0.5, ease: 'easeInOut' }}
@@ -84,9 +84,9 @@ export default function HowItWorksSection() {
                                         <motion.div 
                                             className={`group relative z-10 mb-6 flex h-24 w-24 items-center justify-center rounded-full shadow-xl transition-all duration-500 ${
                                                 isActive 
-                                                    ? 'bg-gradient-to-br from-purple-600 to-cyan-600 scale-110' 
+                                                    ? 'bg-gradient-to-br from-[#C47440] to-[#B4B651] scale-110' 
                                                     : isPast 
-                                                    ? 'bg-gradient-to-br from-purple-500 to-cyan-500'
+                                                    ? 'bg-gradient-to-br from-[#D89060] to-[#C8CA6F]'
                                                     : 'bg-gray-300'
                                             }`}
                                             whileHover={{ scale: 1.15, rotate: 5 }}
@@ -106,9 +106,9 @@ export default function HowItWorksSection() {
                                             {/* Step Number Badge */}
                                             <div className={`absolute -top-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold shadow-lg ring-2 ring-white transition-all duration-300 ${
                                                 isActive 
-                                                    ? 'bg-gradient-to-br from-purple-600 to-pink-600 text-white scale-110' 
+                                                    ? 'bg-gradient-to-br from-[#C47440] to-[#B4B651] text-white scale-110' 
                                                     : isPast
-                                                    ? 'bg-purple-500 text-white'
+                                                    ? 'bg-[#C47440] text-white'
                                                     : 'bg-white text-gray-400'
                                             }`}>
                                                 {index + 1}
@@ -118,7 +118,7 @@ export default function HowItWorksSection() {
                                             {isActive && (
                                                 <>
                                                     <motion.div 
-                                                        className="absolute inset-0 rounded-full border-4 border-purple-400"
+                                                        className="absolute inset-0 rounded-full border-4 border-[#C47440]"
                                                         animate={{ 
                                                             scale: [1, 1.3, 1],
                                                             opacity: [0.5, 0, 0.5]
@@ -130,7 +130,7 @@ export default function HowItWorksSection() {
                                                         }}
                                                     />
                                                     <motion.div 
-                                                        className="absolute inset-0 rounded-full border-4 border-cyan-400"
+                                                        className="absolute inset-0 rounded-full border-4 border-[#B4B651]"
                                                         animate={{ 
                                                             scale: [1, 1.4, 1],
                                                             opacity: [0.5, 0, 0.5]
@@ -162,7 +162,7 @@ export default function HowItWorksSection() {
 
                                         {/* Title */}
                                         <h3 className={`text-center text-lg font-bold transition-all duration-300 ${
-                                            isActive ? 'text-purple-600 scale-105' : 'text-gray-700'
+                                            isActive ? 'text-[#C47440] scale-105' : 'text-gray-700'
                                         }`}>
                                             {step.title}
                                         </h3>
@@ -177,14 +177,14 @@ export default function HowItWorksSection() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
-                            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white via-purple-50/50 to-cyan-50/50 p-8 shadow-2xl border border-purple-100"
+                            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white via-[#F5EFE7]/50 to-[#F0F4E8]/50 p-8 shadow-2xl border border-[#C47440]/20"
                         >
                             <div className="flex items-start gap-6">
                                 <div className="flex-shrink-0">
                                     {(() => {
                                         const Icon = iconMap[howItWorksSteps[activeStep].icon];
                                         return (
-                                            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-600 to-cyan-600 shadow-lg">
+                                            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#C47440] to-[#B4B651] shadow-lg">
                                                 <Icon className="h-8 w-8 text-white" />
                                             </div>
                                         );
@@ -195,7 +195,7 @@ export default function HowItWorksSection() {
                                         <h3 className="text-3xl font-bold text-gray-900">
                                             {howItWorksSteps[activeStep].title}
                                         </h3>
-                                        <span className="px-3 py-1 rounded-full bg-purple-100 text-purple-600 text-sm font-semibold">
+                                        <span className="px-3 py-1 rounded-full bg-[#F5EFE7] text-[#C47440] text-sm font-semibold">
                                             Paso {activeStep + 1} de {howItWorksSteps.length}
                                         </span>
                                     </div>
@@ -206,7 +206,7 @@ export default function HowItWorksSection() {
                                 {activeStep < howItWorksSteps.length - 1 && (
                                     <button
                                         onClick={() => setActiveStep((prev) => prev + 1)}
-                                        className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-br from-purple-600 to-cyan-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+                                        className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-br from-[#C47440] to-[#B4B651] text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
                                     >
                                         <ChevronRight className="h-6 w-6" />
                                     </button>
@@ -221,7 +221,7 @@ export default function HowItWorksSection() {
                                         onClick={() => setActiveStep(index)}
                                         className={`h-2 rounded-full transition-all duration-300 ${
                                             index === activeStep 
-                                                ? 'w-12 bg-gradient-to-r from-purple-600 to-cyan-600' 
+                                                ? 'w-12 bg-gradient-to-r from-[#C47440] to-[#B4B651]' 
                                                 : 'w-2 bg-gray-300 hover:bg-gray-400'
                                         }`}
                                     />
@@ -237,7 +237,7 @@ export default function HowItWorksSection() {
                         {/* Vertical Line */}
                         <div className="absolute left-6 top-0 bottom-0 w-1 bg-gray-200 rounded-full overflow-hidden">
                             <motion.div 
-                                className="w-full bg-gradient-to-b from-purple-600 via-pink-600 to-cyan-600"
+                                className="w-full bg-gradient-to-b from-[#C47440] via-[#B4B651] to-[#6A6A6A]"
                                 initial={{ height: '0%' }}
                                 animate={{ height: `${((activeStep + 1) / howItWorksSteps.length) * 100}%` }}
                                 transition={{ duration: 0.5 }}
@@ -263,9 +263,9 @@ export default function HowItWorksSection() {
                                     <motion.div 
                                         className={`group relative z-10 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full shadow-lg transition-all duration-300 ${
                                             isActive 
-                                                ? 'bg-gradient-to-br from-purple-600 to-cyan-600 scale-110' 
+                                                ? 'bg-gradient-to-br from-[#C47440] to-[#B4B651] scale-110' 
                                                 : isPast 
-                                                ? 'bg-gradient-to-br from-purple-500 to-cyan-500'
+                                                ? 'bg-gradient-to-br from-[#D89060] to-[#C8CA6F]'
                                                 : 'bg-gray-300'
                                         }`}
                                         animate={isActive ? { scale: [1.1, 1.2, 1.1] } : {}}
@@ -275,7 +275,7 @@ export default function HowItWorksSection() {
 
                                         {/* Step Number Badge */}
                                         <div className={`absolute -top-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold shadow ring-2 ring-white ${
-                                            isActive || isPast ? 'bg-purple-600 text-white' : 'bg-white text-gray-400'
+                                            isActive || isPast ? 'bg-[#C47440] text-white' : 'bg-white text-gray-400'
                                         }`}>
                                             {index + 1}
                                         </div>
@@ -294,11 +294,11 @@ export default function HowItWorksSection() {
                                     <motion.div 
                                         className={`flex-1 rounded-2xl p-6 shadow-md transition-all duration-300 ${
                                             isActive 
-                                                ? 'bg-gradient-to-br from-purple-50 to-cyan-50 shadow-xl border-2 border-purple-200' 
+                                                ? 'bg-gradient-to-br from-[#F5EFE7] to-[#F0F4E8] shadow-xl border-2 border-[#C47440]/30' 
                                                 : 'bg-white border border-gray-200'
                                         }`}
                                     >
-                                        <h3 className={`mb-2 text-lg font-bold ${isActive ? 'text-purple-600' : 'text-gray-900'}`}>
+                                        <h3 className={`mb-2 text-lg font-bold ${isActive ? 'text-[#C47440]' : 'text-gray-900'}`}>
                                             {step.title}
                                         </h3>
                                         <p className="text-sm leading-relaxed text-gray-600">{step.description}</p>

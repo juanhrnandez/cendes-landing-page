@@ -23,18 +23,18 @@
   }
 
   :root {
-    /* CENDES Color Palette */
-    --color-primary: #7C3AED;
-    --color-primary-dark: #6D28D9;
-    --color-primary-light: #8B5CF6;
+    /* CENDES Color Palette - From Logo */
+    --color-primary: #C47440;
+    --color-primary-dark: #A85F33;
+    --color-primary-light: #D89060;
 
-    --color-accent: #06B6D4;
-    --color-accent-dark: #0891B2;
-    --color-accent-light: #22D3EE;
+    --color-accent: #B4B651;
+    --color-accent-dark: #9A9B42;
+    --color-accent-light: #C8CA6F;
 
-    --color-highlight: #F59E0B;
-    --color-highlight-dark: #D97706;
-    --color-highlight-light: #FBBF24;
+    --color-highlight: #6A6A6A;
+    --color-highlight-dark: #525252;
+    --color-highlight-light: #8A8A8A;
 
     --color-background: #FFFFFF;
     --color-background-gray: #F9FAFB;

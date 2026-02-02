@@ -5,7 +5,7 @@ import { Heart, ArrowDown } from 'lucide-react';
 
 export default function BridgeSection() {
     return (
-        <section className="relative overflow-hidden bg-gradient-to-b from-white via-cyan-50/30 to-white py-12 md:py-16">
+        <section className="relative overflow-hidden bg-gradient-to-b from-white via-[#F0F4E8]/30 to-white py-12 md:py-16">
             {/* Subtle decorative elements */}
             <div className="absolute inset-0 overflow-hidden opacity-40">
                 {/* Soft wave patterns */}
@@ -37,22 +37,22 @@ export default function BridgeSection() {
                     />
                     <defs>
                         <linearGradient id="gradient-bridge1" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#A5F3FC" />
-                            <stop offset="50%" stopColor="#67E8F9" />
-                            <stop offset="100%" stopColor="#A5F3FC" />
+                            <stop offset="0%" stopColor="#E5D4C1" />
+                            <stop offset="50%" stopColor="#C8CA6F" />
+                            <stop offset="100%" stopColor="#E5D4C1" />
                         </linearGradient>
                         <linearGradient id="gradient-bridge2" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#CFFAFE" />
-                            <stop offset="50%" stopColor="#A5F3FC" />
-                            <stop offset="100%" stopColor="#CFFAFE" />
+                            <stop offset="0%" stopColor="#F5EFE7" />
+                            <stop offset="50%" stopColor="#E5D4C1" />
+                            <stop offset="100%" stopColor="#F5EFE7" />
                         </linearGradient>
                     </defs>
                 </svg>
 
                 {/* Floating subtle dots */}
-                <div className="absolute left-1/4 top-1/4 h-2 w-2 rounded-full bg-cyan-300/40" />
-                <div className="absolute right-1/3 top-1/3 h-3 w-3 rounded-full bg-cyan-200/40" />
-                <div className="absolute bottom-1/4 left-1/2 h-2 w-2 rounded-full bg-cyan-300/40" />
+                <div className="absolute left-1/4 top-1/4 h-2 w-2 rounded-full bg-[#C8CA6F]/40" />
+                <div className="absolute right-1/3 top-1/3 h-3 w-3 rounded-full bg-[#D89060]/40" />
+                <div className="absolute bottom-1/4 left-1/2 h-2 w-2 rounded-full bg-[#C8CA6F]/40" />
             </div>
 
             {/* Content */}
@@ -77,8 +77,8 @@ export default function BridgeSection() {
                         }}
                         className="mb-6 flex justify-center"
                     >
-                        <div className="rounded-full border-2 border-cyan-200 bg-cyan-50 p-3">
-                            <Heart className="h-6 w-6 text-cyan-500 md:h-7 md:w-7" />
+                        <div className="rounded-full border-2 border-[#C8CA6F]/40 bg-[#F0F4E8] p-3">
+                            <Heart className="h-6 w-6 text-[#B4B651] md:h-7 md:w-7" />
                         </div>
                     </motion.div>
 
@@ -92,7 +92,7 @@ export default function BridgeSection() {
                     >
                         <p className="mb-3 text-2xl font-semibold leading-relaxed text-gray-800 md:text-3xl lg:text-4xl">
                             Tu escuela puede ser{' '}
-                            <span className="relative inline-block text-cyan-600">
+                            <span className="relative inline-block text-[#B4B651]">
                                 parte de la solución
                                 <motion.svg
                                     initial={{ pathLength: 0 }}
@@ -106,7 +106,7 @@ export default function BridgeSection() {
                                 >
                                     <motion.path
                                         d="M0,4 Q50,0 100,4 T200,4"
-                                        stroke="#67E8F9"
+                                        stroke="#C8CA6F"
                                         strokeWidth="3"
                                         fill="none"
                                         strokeLinecap="round"
@@ -124,7 +124,7 @@ export default function BridgeSection() {
                         transition={{ duration: 0.8, delay: 0.6 }}
                         className="mx-auto mt-8 flex items-center justify-center gap-3"
                     >
-                        <div className="h-px w-16 bg-gradient-to-r from-transparent to-cyan-300" />
+                        <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#B4B651]/40" />
                         <div className="flex gap-1.5">
                             {[0, 1, 2].map((i) => (
                                 <motion.div
@@ -137,11 +137,11 @@ export default function BridgeSection() {
                                         stiffness: 200,
                                         delay: 0.7 + (i * 0.1)
                                     }}
-                                    className="h-1.5 w-1.5 rounded-full bg-cyan-400"
+                                    className="h-1.5 w-1.5 rounded-full bg-[#B4B651]"
                                 />
                             ))}
                         </div>
-                        <div className="h-px w-16 bg-gradient-to-l from-transparent to-cyan-300" />
+                        <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#B4B651]/40" />
                     </motion.div>
 
                     {/* Subtle arrow indicator */}
@@ -162,7 +162,7 @@ export default function BridgeSection() {
                                 ease: "easeInOut"
                             }}
                         >
-                            <ArrowDown className="h-5 w-5 text-cyan-400" />
+                            <ArrowDown className="h-5 w-5 text-[#B4B651]" />
                         </motion.div>
                     </motion.div>
                 </motion.div>

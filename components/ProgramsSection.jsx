@@ -49,53 +49,79 @@ export default function ProgramsSection() {
     }, [emblaApi, onSelect]);
 
     return (
-        <section id="programs" className="py-16 md:py-20 bg-gradient-to-br from-purple-50 to-cyan-50 overflow-hidden">
+        <section id="programs" className="py-20 md:py-24 bg-[#F5EFE7] relative overflow-hidden">
+            {/* Background Decorations */}
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+            <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#C47440]/5 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[#B4B651]/5 rounded-full blur-3xl pointer-events-none"></div>
+
             {/* Header */}
-            <div className="container-cendes mb-12">
+            <div className="container-cendes mb-16 relative z-10">
                 <AnimatedSection>
-                    <div className="text-center">
-                        <h2 className="mb-3 text-3xl font-bold md:text-4xl lg:text-5xl">
-                            Nuestros Programas
+                    <div className="text-center max-w-4xl mx-auto">
+                        <span className="text-[#C47440] font-bold tracking-widest uppercase text-sm mb-3 block">Nuestra Oferta Educativa</span>
+                        <h2 className="mb-6 text-4xl font-black text-gray-900 md:text-5xl lg:text-6xl tracking-tight">
+                            Programas <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C47440] to-[#B4B651]">Transformadores</span>
                         </h2>
-                        <p className="mx-auto max-w-3xl text-lg text-gray-600 md:text-xl">
-                            5 programas especializados por edad y temática
+                        <p className="mx-auto text-lg text-gray-600 md:text-xl leading-relaxed">
+                            Diseñados por expertos para cada etapa del desarrollo, utilizando el arte como herramienta principal de prevención.
                         </p>
                     </div>
                 </AnimatedSection>
             </div>
 
             {/* Embla Carousel */}
-            <div className="relative">
-                <div className="overflow-hidden" ref={emblaRef}>
-                    <div className="flex gap-4 md:gap-6 px-4 md:px-8">
+            <div className="relative z-10">
+                <div className="overflow-visible" ref={emblaRef}>
+                    <div className="flex touch-pan-y pl-4 md:pl-[max(2rem,calc((100vw-1200px)/2))]">
                         {programs.map((program, index) => (
                             <div
                                 key={program.id}
-                                className="flex-[0_0_90%] sm:flex-[0_0_75%] md:flex-[0_0_550px] lg:flex-[0_0_650px] min-w-0"
+                                className="flex-[0_0_85%] sm:flex-[0_0_60%] md:flex-[0_0_45%] lg:flex-[0_0_32%] min-w-0 pl-6 lg:pl-8 first:pl-0"
                             >
-                                <Card {...program} />
+                                <div className={`transition-all duration-500 ${index === selectedIndex ? 'scale-100 opacity-100' : 'scale-95 opacity-70 hover:opacity-100'}`}>
+                                    <Card {...program} />
+                                </div>
                             </div>
                         ))}
                     </div>
                 </div>
 
-                {/* Navigation Buttons */}
-                <div className="absolute left-0 right-0 top-1/2 z-30 flex -translate-y-1/2 items-center justify-between px-4 md:px-8 pointer-events-none">
-                    <button
-                        onClick={scrollPrev}
-                        className="pointer-events-auto rounded-full bg-white p-3 md:p-4 shadow-xl transition-all hover:scale-110 hover:bg-purple-600 hover:text-white active:scale-95"
-                        aria-label="Programa anterior"
-                    >
-                        <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
-                    </button>
+                {/* Controls Container */}
+                <div className="container-cendes mt-12 flex flex-col md:flex-row items-center justify-between gap-6">
+                    {/* Dots Navigation */}
+                    <div className="flex justify-center gap-3">
+                        {programs.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => scrollTo(index)}
+                                className={`h-3 rounded-full transition-all duration-300 ${
+                                    index === selectedIndex 
+                                    ? 'w-10 bg-[#C47440]' 
+                                    : 'w-3 bg-gray-300 hover:bg-[#C47440]/50'
+                                }`}
+                                aria-label={`Ir al programa ${index + 1}`}
+                            />
+                        ))}
+                    </div>
 
-                    <button
-                        onClick={scrollNext}
-                        className="pointer-events-auto rounded-full bg-white p-3 md:p-4 shadow-xl transition-all hover:scale-110 hover:bg-purple-600 hover:text-white active:scale-95"
-                        aria-label="Siguiente programa"
-                    >
-                        <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
-                    </button>
+                    {/* Arrow Navigation */}
+                    <div className="flex gap-4">
+                        <button
+                            onClick={scrollPrev}
+                            className="group flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-white shadow-sm transition-all hover:border-[#C47440] hover:bg-[#C47440] hover:text-white"
+                            aria-label="Programa anterior"
+                        >
+                            <ChevronLeft className="h-6 w-6 text-gray-600 transition-colors group-hover:text-white" />
+                        </button>
+                        <button
+                            onClick={scrollNext}
+                            className="group flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-white shadow-sm transition-all hover:border-[#C47440] hover:bg-[#C47440] hover:text-white"
+                            aria-label="Siguiente programa"
+                        >
+                            <ChevronRight className="h-6 w-6 text-gray-600 transition-colors group-hover:text-white" />
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -107,7 +133,7 @@ export default function ProgramsSection() {
                         onClick={() => scrollTo(index)}
                         className={`h-2.5 rounded-full transition-all duration-300 ${
                             index === selectedIndex
-                                ? 'w-10 bg-gradient-to-r from-purple-600 to-cyan-600'
+                                ? 'w-10 bg-gradient-to-r from-[#C47440] to-[#B4B651]'
                                 : 'w-2.5 bg-gray-300 hover:bg-gray-400'
                         }`}
                         aria-label={`Ir a ${program.title}`}

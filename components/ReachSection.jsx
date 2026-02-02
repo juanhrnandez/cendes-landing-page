@@ -10,9 +10,9 @@ import { recognitions } from '@/lib/constants';
 const InteractiveMap = dynamic(() => import('./InteractiveMap'), {
     ssr: false,
     loading: () => (
-        <div className="h-[500px] md:h-[600px] bg-gradient-to-br from-purple-100 to-cyan-100 rounded-b-3xl flex items-center justify-center">
+        <div className="h-[500px] md:h-[600px] bg-gradient-to-br from-[#F5EFE7] to-[#F0F4E8] rounded-b-3xl flex items-center justify-center">
             <div className="text-center">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#C47440] mx-auto mb-4"></div>
                 <p className="text-gray-600">Cargando mapa...</p>
             </div>
         </div>
@@ -33,16 +33,16 @@ export default function ReachSection() {
     ];
 
     return (
-        <section id="reach" className="relative py-16 md:py-20 bg-gradient-to-br from-white via-purple-50 to-cyan-50 overflow-hidden">
+        <section id="reach" className="relative py-16 md:py-20 bg-gradient-to-br from-white via-[#F5EFE7] to-[#F0F4E8] overflow-hidden">
             {/* Decorative elements */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-purple-200/30 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-200/30 rounded-full blur-3xl" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#D89060]/30 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#C8CA6F]/30 rounded-full blur-3xl" />
 
             <div className="container-cendes relative z-10">
                 <AnimatedSection>
                     <div className="text-center mb-12">
                         <div className="inline-flex items-center justify-center gap-2 mb-4">
-                            <Globe className="h-10 w-10 text-purple-600" />
+                            <Globe className="h-10 w-10 text-[#C47440]" />
                         </div>
                         <h2 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">
                             Nuestro Alcance
@@ -56,7 +56,7 @@ export default function ReachSection() {
                 {/* Impact Numbers - 3 Columns */}
                 <AnimatedSection>
                     <div className="mb-16 grid gap-6 md:grid-cols-3">
-                        <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-500 to-purple-600 p-8 text-center shadow-xl transition-all hover:shadow-2xl hover:-translate-y-2">
+                        <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#C47440] to-[#A85F33] p-8 text-center shadow-xl transition-all hover:shadow-2xl hover:-translate-y-2">
                             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                             <School className="h-12 w-12 text-white/80 mx-auto mb-4" />
                             <div className="relative mb-2 text-5xl font-bold text-white md:text-6xl">
@@ -67,7 +67,7 @@ export default function ReachSection() {
                             </div>
                         </div>
 
-                        <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-cyan-500 to-cyan-600 p-8 text-center shadow-xl transition-all hover:shadow-2xl hover:-translate-y-2">
+                        <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#B4B651] to-[#9A9B42] p-8 text-center shadow-xl transition-all hover:shadow-2xl hover:-translate-y-2">
                             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                             <Users className="h-12 w-12 text-white/80 mx-auto mb-4" />
                             <div className="relative mb-2 text-5xl font-bold text-white md:text-6xl">
@@ -78,7 +78,7 @@ export default function ReachSection() {
                             </div>
                         </div>
 
-                        <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-500 to-orange-500 p-8 text-center shadow-xl transition-all hover:shadow-2xl hover:-translate-y-2">
+                        <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#6A6A6A] to-[#525252] p-8 text-center shadow-xl transition-all hover:shadow-2xl hover:-translate-y-2">
                             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                             <MapPin className="h-12 w-12 text-white/80 mx-auto mb-4" />
                             <div className="relative mb-2 text-5xl font-bold text-white md:text-6xl">
@@ -160,7 +160,7 @@ export default function ReachSection() {
                 <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                     {/* Recognitions Card */}
                     <AnimatedSection className="md:col-span-2">
-                        <div className="bg-gradient-to-br from-white to-purple-50 rounded-3xl p-8 shadow-xl border border-purple-100 h-full">
+                        <div className="bg-gradient-to-br from-white to-[#F5EFE7] rounded-3xl p-8 shadow-xl border border-[#C47440]/20 h-full">
                             <h3 className="text-2xl md:text-3xl font-bold mb-6 flex items-center gap-3">
                                 <Award className="h-8 w-8 text-amber-500" />
                                 Reconocimientos Oficiales
@@ -185,7 +185,7 @@ export default function ReachSection() {
 
                     {/* Additional Info Card */}
                     <AnimatedSection>
-                        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-600 via-purple-500 to-cyan-500 p-8 shadow-xl h-full flex flex-col justify-center">
+                        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#C47440] via-[#B4B651] to-[#6A6A6A] p-8 shadow-xl h-full flex flex-col justify-center">
                             <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -mr-20 -mt-20" />
                             <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full -ml-16 -mb-16" />
                             <div className="relative text-center">
