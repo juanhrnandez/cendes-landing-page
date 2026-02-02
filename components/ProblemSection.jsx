@@ -1,94 +1,113 @@
 'use client';
 
-import AnimatedSection from '@/components/AnimatedSection';
-import { statistics } from '@/lib/constants';
+import { motion } from 'framer-motion';
 import { AlertCircle, Shield, Users, TrendingUp } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
+import { statistics } from '@/lib/constants';
 
-const icons = [AlertCircle, Shield, Users, TrendingUp];
+const icons = [AlertCircle, TrendingUp, Users, Shield];
 
 export default function ProblemSection() {
     return (
-        <section id="problem" className="py-16 md:py-20 bg-gradient-to-br from-gray-50 via-[#F5EFE7]/30 to-[#F0F4E8]/30">
-            <div className="container-cendes">
-                <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <section id="problem" className="py-20 md:py-24 bg-white relative overflow-hidden">
+            {/* Background Gradient Orbs */}
+            <div className="absolute top-0 right-0 h-[400px] w-[400px] bg-[#C47440]/5 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2" />
+            <div className="absolute bottom-0 left-0 h-[400px] w-[400px] bg-[#B4B651]/5 rounded-full blur-[100px] -translate-x-1/2 translate-y-1/2" />
+
+            <div className="container-cendes relative z-10 px-6">
+                <div className="grid lg:grid-cols-12 gap-12 items-start">
                     
-                    {/* Left Side - Header */}
-                    <AnimatedSection className="lg:col-span-4 self-start">
-                        <div className="lg:sticky lg:top-32 space-y-8">
-                            <div>
-                                <div className="inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-100 px-4 py-1.5 mb-6">
-                                    <span className="relative flex h-2 w-2">
-                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                                        <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-                                    </span>
-                                    <span className="text-xs font-bold text-red-600 uppercase tracking-widest">
-                                        Realidad Urgente
-                                    </span>
-                                </div>
-                                <h2 className="text-4xl md:text-5xl font-black text-gray-900 leading-[1.1] mb-6">
-                                    El Problema<br />
-                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C47440] to-[#B4B651]">que Enfrentamos</span>
-                                </h2>
-                                <p className="text-lg text-gray-600 leading-relaxed border-l-4 border-gray-200 pl-4">
-                                    Estas estadísticas no son solo números, representan a niñas, niños y adolescentes en riesgo que necesitan prevención hoy.
-                                </p>
-                            </div>
-                            
-                            {/* Inline CTA / Insight */}
-                            <div className="relative overflow-hidden rounded-2xl bg-gray-900 p-8 shadow-2xl">
-                                <div className="absolute top-0 right-0 -mt-4 -mr-4 h-24 w-24 rounded-full bg-[#C47440] opacity-20 blur-2xl"></div>
-                                <div className="absolute bottom-0 left-0 -mb-4 -ml-4 h-24 w-24 rounded-full bg-[#B4B651] opacity-20 blur-2xl"></div>
-                                
-                                <h3 className="relative z-10 text-xl font-bold text-white mb-3">
-                                    La inacción<br />tiene un costo alto
-                                </h3>
-                                <p className="relative z-10 text-gray-300 text-sm mb-4 leading-relaxed">
-                                    La educación preventiva es la herramienta más poderosa para cambiar esta realidad.
-                                </p>
-                                <div className="relative z-10 flex items-center gap-2 text-[#E2E48A] text-sm font-semibold">
-                                    <Shield className="h-4 w-4" />
-                                    <span>La prevención salva vidas</span>
-                                </div>
-                            </div>
-                        </div>
-                    </AnimatedSection>
+                    {/* Left Column: Context & Narrative */}
+                    <div className="lg:col-span-5 space-y-8 sticky top-32">
+                        {/* Section Tag */}
+                        <motion.div 
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="inline-flex items-center gap-2 rounded-full px-3 py-1 bg-red-50 border border-red-100"
+                        >
+                            <span className="relative flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                            </span>
+                            <span className="text-xs font-bold text-red-600 uppercase tracking-wider">Realidad Urgente</span>
+                        </motion.div>
 
-                    {/* Right Side - Statistics Grid 2x2 */}
-                    <div className="lg:col-span-8">
-                        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2">
-                            {statistics.map((stat, index) => {
-                                const Icon = icons[index];
-                                return (
-                                    <AnimatedSection key={index} delay={index * 0.1}>
-                                        <div className="group relative h-full overflow-hidden rounded-3xl bg-white p-8 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] transition-all duration-300 hover:shadow-[0_20px_60px_-15px_rgba(196,116,64,0.15)] hover:-translate-y-1">
-                                            {/* Top accent line */}
-                                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gray-200 to-transparent group-hover:via-[#C47440] transition-all duration-500"></div>
-                                            
-                                            <div className="flex flex-col h-full justify-between">
-                                                <div>
-                                                    <div className="mb-6 inline-flex items-center justify-center p-3 rounded-2xl bg-[#F5EFE7] text-[#C47440] group-hover:scale-110 group-hover:bg-[#C47440] group-hover:text-white transition-all duration-300">
-                                                        <Icon className="h-6 w-6" />
-                                                    </div>
-                                                    
-                                                    <div className="mb-3">
-                                                        <span className="text-5xl font-black text-gray-900 tracking-tight">
-                                                            {stat.number}
-                                                        </span>
-                                                    </div>
+                        <motion.div
+                             initial={{ opacity: 0, y: 10 }}
+                             whileInView={{ opacity: 1, y: 0 }}
+                             viewport={{ once: true }}
+                             transition={{ delay: 0.1 }}
+                        >
+                            <h2 className="text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900 mb-6 leading-tight">
+                                El problema que <span className="text-[#C47440]">no podemos ignorar</span>.
+                            </h2>
+                            <p className="text-lg text-gray-600 leading-relaxed text-balance">
+                                México enfrenta una crisis silenciosa en sus escuelas. La falta de educación preventiva deja a millones de estudiantes vulnerables cada año.
+                            </p>
+                        </motion.div>
+
+                        <Separator className="bg-gray-100" />
+                        
+                        <motion.div
+                             initial={{ opacity: 0, y: 10 }}
+                             whileInView={{ opacity: 1, y: 0 }}
+                             viewport={{ once: true }}
+                             transition={{ delay: 0.2 }}
+                             className="bg-gray-50 rounded-2xl p-6 border border-gray-100"
+                        >
+                            <div className="flex items-start gap-4">
+                                <div className="p-3 bg-white rounded-xl shadow-sm relative overflow-hidden group">
+                                    <Shield className="h-6 w-6 text-[#C47440] relative z-10" />
+                                    <div className="absolute inset-0 bg-[#C47440]/10 scale-0 group-hover:scale-100 transition-transform origin-bottom-left" />
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-gray-900 mb-1">La inacción cuesta vidas</h3>
+                                    <p className="text-sm text-gray-500 leading-relaxed">
+                                        Nuestra misión es transformar estas estadísticas a través del arte y la educación emocional, brindando herramientas reales a la comunidad.
+                                    </p>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+
+                    {/* Right Column: Statistics Grid */}
+                    <div className="lg:col-span-7 grid sm:grid-cols-2 gap-6">
+                        {statistics.map((stat, index) => {
+                            const Icon = icons[index];
+                            return (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.1 + 0.3 }}
+                                >
+                                    <Card className="h-full border-0 shadow-[0_4px_25px_-5px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_35px_-5px_rgba(196,116,64,0.15)] transition-all duration-300 group overflow-hidden bg-white/50 backdrop-blur-sm">
+                                        <CardHeader className="pb-2">
+                                            <div className="flex justify-between items-start mb-4">
+                                                <div className="p-3 bg-gray-50 rounded-2xl group-hover:bg-[#C47440] transition-colors duration-300">
+                                                    <Icon className="h-6 w-6 text-gray-600 group-hover:text-white transition-colors duration-300" />
                                                 </div>
-                                                
-                                                <p className="text-lg text-gray-600 font-medium leading-normal border-t border-gray-100 pt-6 mt-2 group-hover:border-[#C47440]/20 transition-colors">
-                                                    {stat.text}
-                                                </p>
+                                                <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400">Dato {index + 1}</span>
                                             </div>
-
-                                            {/* Background decoration */}
-                                            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-gradient-to-br from-[#C47440]/5 to-[#B4B651]/5 rounded-full blur-3xl group-hover:opacity-100 transition-opacity duration-500"></div>
-                                        </div>
-                                    </AnimatedSection>
-                                );
-                            })}
-                        </div>
+                                            <CardTitle className="text-4xl md:text-5xl font-black text-gray-900 tracking-tighter">
+                                                {stat.number}
+                                            </CardTitle>
+                                        </CardHeader>
+                                        <CardContent>
+                                            <p className="text-base text-gray-600 font-medium leading-relaxed group-hover:text-gray-900 transition-colors">
+                                                {stat.text}
+                                            </p>
+                                        </CardContent>
+                                        
+                                        {/* Decorative Hover Line */}
+                                        <div className="absolute bottom-0 left-0 h-1 bg-[#C47440] w-0 group-hover:w-full transition-all duration-500 ease-in-out" />
+                                    </Card>
+                                </motion.div>
+                            );
+                        })}
                     </div>
                 </div>
             </div>

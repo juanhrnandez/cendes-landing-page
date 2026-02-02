@@ -1,188 +1,155 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ChevronDown, Shield, Users, Heart } from 'lucide-react';
-import Button from '@/components/Button';
+import { Shield, Users, Trophy, ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export default function HeroSection() {
     return (
-        <section id="hero" className="relative flex min-h-screen items-center overflow-hidden pt-24 pb-12 md:pt-32 md:pb-20">
-            {/* Background Image */}
-            <div className="absolute inset-0 z-0">
-                <img 
-                    src="/images/cendes-book-niños.jpg" 
-                    alt="Niños participando en programas educativos CENDES - Prevención de violencia sexual y bullying en escuelas de México" 
-                    className="h-full w-full object-cover"
-                />
-                {/* Dark Gradient Overlays for better text readability */}
-                <div className="absolute inset-0 bg-gradient-to-r from-gray-900/60 via-gray-900/70 to-[#6A6A6A]/40" />
-                <div className="absolute inset-0 bg-gradient-to-b from-gray-900/60 via-transparent to-gray-900/80" />
-            </div>
+        <section className="relative flex min-h-[90vh] items-center overflow-hidden pt-28 pb-20 lg:pt-32 bg-white">
+            {/* Background Decorative Elements - Premium & Clean */}
+            <div className="absolute top-[-10%] right-[-5%] h-[500px] w-[500px] rounded-full bg-[#C47440]/10 blur-[100px]" />
+            <div className="absolute bottom-[-10%] left-[-5%] h-[500px] w-[500px] rounded-full bg-[#B4B651]/10 blur-[100px]" />
+            
+            {/* Subtle Grid Pattern */}
+            <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.03]" />
 
-            {/* Content */}
             <div className="container-cendes relative z-10 px-6">
-                <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                     
-                    {/* Left Content - Main Information */}
+                    {/* Left Column: Content */}
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="lg:col-span-7 space-y-8 md:space-y-10"
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="space-y-8"
                     >
-                        {/* Campaign Badge */}
-                        <div className="inline-flex items-center gap-3 rounded-full bg-white/10 px-6 py-2 border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.1)] backdrop-blur-md transition-all hover:bg-white/15 cursor-default">
-                            <span className="relative flex h-3 w-3">
+                        {/* Premium Badge */}
+                        <motion.div 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2, duration: 0.5 }}
+                            className="inline-flex items-center gap-2 rounded-full bg-[#F5F5F0] px-4 py-1.5 border border-[#E5E5E0] shadow-sm"
+                        >
+                            <span className="flex h-2 w-2 relative">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C47440] opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-3 w-3 bg-[#C47440]"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C47440]"></span>
                             </span>
-                            <span className="text-sm font-bold uppercase tracking-widest text-[#F5EFE7]">
+                            <span className="text-xs font-bold uppercase tracking-widest text-[#5A5A5A]">
                                 Campaña Nacional 2026
                             </span>
-                        </div>
+                        </motion.div>
 
-                        {/* Main Heading */}
-                        <div className="space-y-6">
-                            <h1 className="text-5xl font-black leading-[1.1] text-white sm:text-6xl md:text-7xl tracking-tight drop-shadow-sm">
-                                Protege a tu{' '}
-                                <span className="relative inline-block whitespace-nowrap">
-                                    <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-[#D89060] to-[#E2E48A]">
-                                        comunidad escolar
-                                    </span>
-                                    {/* Decorative element behind text */}
-                                    <div className="absolute -inset-1 -z-0 bg-white/5 blur-lg rounded-full opacity-50 scale-110"></div>
-                                </span>
-                                <br />
-                                a través del <span className="text-white italic">arte</span>
+                        {/* Heading */}
+                        <div className="space-y-4">
+                            <h1 className="text-4xl font-extrabold leading-[1.15] text-[#1A1A1A] sm:text-5xl md:text-6xl tracking-tight">
+                                Protege a tu comunidad escolar con <span className="text-[#C47440]">educación</span> y <span className="text-[#B4B651]">arte</span>.
                             </h1>
-                            <p className="text-lg text-gray-200 leading-relaxed md:text-2xl font-light border-l-4 border-[#C47440] pl-6 max-w-2xl">
-                                Prevención profesional de violencia sexual, bullying y acoso
-                                para niñas, niños y adolescentes.
+                            <p className="text-lg text-[#5A5A5A] leading-relaxed md:text-xl font-medium max-w-xl">
+                                La solución integral para la prevención de violencia sexual, bullying y acoso en escuelas, validada por más de 10 años de experiencia.
                             </p>
                         </div>
 
-                        {/* Key Benefits Icons - Redesigned as glass cards */}
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                            <div className="group flex sm:block items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/20 hover:translate-y-[-2px]">
-                                <div className="p-3 rounded-lg bg-[#C47440]/20 w-fit mb-0 sm:mb-3">
-                                    <Shield className="h-6 w-6 text-[#D89060] group-hover:scale-110 transition-transform" />
-                                </div>
-                                <div>
-                                    <p className="text-2xl font-bold text-white tracking-tight">10 Años</p>
-                                    <p className="text-sm text-gray-300 font-medium">de experiencia</p>
-                                </div>
-                            </div>
-                            
-                            <div className="group flex sm:block items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/20 hover:translate-y-[-2px]">
-                                <div className="p-3 rounded-lg bg-[#B4B651]/20 w-fit mb-0 sm:mb-3">
-                                    <Users className="h-6 w-6 text-[#E2E48A] group-hover:scale-110 transition-transform" />
-                                </div>
-                                <div>
-                                    <p className="text-2xl font-bold text-white tracking-tight">+500k</p>
-                                    <p className="text-sm text-gray-300 font-medium">personas impactadas</p>
-                                </div>
-                            </div>
-
-                            <div className="group flex sm:block items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/20 hover:translate-y-[-2px]">
-                                <div className="p-3 rounded-lg bg-[#6A6A6A]/20 w-fit mb-0 sm:mb-3">
-                                    <Heart className="h-6 w-6 text-gray-300 group-hover:scale-110 transition-transform" />
-                                </div>
-                                <div>
-                                    <p className="text-2xl font-bold text-white tracking-tight">5 Programas</p>
-                                    <p className="text-sm text-gray-300 font-medium">especializados</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* CTA Button */}
-                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                            <Button variant="large" size="xlarge" href="https://registro.cendes.org/">
-                                Descubre qué programa es para tu escuela
+                        {/* CTA Actions */}
+                        <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                            <Button 
+                                size="lg" 
+                                className="bg-[#C47440] hover:bg-[#A85F33] text-white rounded-full px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 font-semibold"
+                                asChild
+                            >
+                                <Link href="https://registro.cendes.org/">
+                                    Contactar Ahora <ArrowRight className="ml-2 h-5 w-5" />
+                                </Link>
                             </Button>
-                            
-                            {/* Quick Benefits */}
-                            <div className="flex flex-wrap items-center gap-3 md:gap-5 text-sm text-gray-200">
-                                <div className="flex items-center gap-2">
-                                    <svg className="h-5 w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Solo 2 minutos</span>
+                            <Button 
+                                variant="outline" 
+                                size="lg" 
+                                className="border-[#C47440]/20 text-[#1A1A1A] hover:bg-[#C47440]/5 hover:border-[#C47440] rounded-full px-8 py-6 text-lg font-semibold"
+                                asChild
+                            >
+                                <Link href="#programs">
+                                    Ver Programas
+                                </Link>
+                            </Button>
+                        </div>
+                        
+                        {/* Trust Indicators */}
+                        <div className="pt-8 border-t border-gray-100 flex flex-wrap gap-8 items-center">
+                            <div className="flex items-center gap-3">
+                                <div className="p-2 bg-[#C47440]/10 rounded-lg">
+                                    <Shield className="h-5 w-5 text-[#C47440]" />
                                 </div>
-                                <div className="flex items-center gap-2">
-                                    <svg className="h-5 w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Sin compromiso</span>
+                                <div className="text-sm">
+                                    <p className="font-bold text-[#1A1A1A]">Seguridad</p>
+                                    <p className="text-[#6A6A6A]">Certificada</p>
                                 </div>
-                                <div className="flex items-center gap-2">
-                                    <svg className="h-5 w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Propuesta personalizada</span>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <div className="p-2 bg-[#B4B651]/10 rounded-lg">
+                                    <Users className="h-5 w-5 text-[#9A9B42]" />
+                                </div>
+                                <div className="text-sm">
+                                    <p className="font-bold text-[#1A1A1A]">+500k</p>
+                                    <p className="text-[#6A6A6A]">Impactados</p>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <div className="p-2 bg-gray-100 rounded-lg">
+                                    <Trophy className="h-5 w-5 text-gray-600" />
+                                </div>
+                                <div className="text-sm">
+                                    <p className="font-bold text-[#1A1A1A]">10 Años</p>
+                                    <p className="text-[#6A6A6A]">Experiencia</p>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Trust Bar */}
-                        <div className="pt-6 border-t border-gray-600/50 backdrop-blur-sm">
-                            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-400">
-                                Reconocidos y apoyados por:
-                            </p>
-                            <div className="flex flex-wrap items-center gap-6">
-                                <img src="/images/spinna_logo.png" alt="SIPINNA - Sistema Nacional de Protección Integral de Niñas, Niños y Adolescentes" className="h-12 md:h-14 object-contain opacity-70 hover:opacity-100 transition-opacity brightness-0 invert" />
-                                <img src="/images/SNDIF_Logo_(2018).svg" alt="DIF Nacional - Sistema Nacional para el Desarrollo Integral de la Familia" className="h-12 md:h-14 object-contain opacity-70 hover:opacity-100 transition-opacity brightness-0 invert" />
-                            </div>
-                        </div>
                     </motion.div>
 
-                    {/* Right Content - Statistics Cards */}
+                    {/* Right Column: Visual */}
                     <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.3 }}
-                        className="lg:col-span-5 flex flex-col gap-6"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="relative lg:h-[600px] flex items-center justify-center hidden lg:flex"
                     >
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.5 }}
-                            className="rounded-3xl bg-white/10 backdrop-blur-xl p-8 shadow-2xl border border-white/20"
-                        >
-                            <p className="text-5xl md:text-6xl font-bold text-[#C47440] mb-2">+1,500</p>
-                            <p className="text-base md:text-lg text-gray-200">Escuelas transformadas</p>
-                        </motion.div>
+                        {/* Abstract Background Shapes behind image */}
+                        <div className="absolute top-10 right-10 w-3/4 h-3/4 bg-[#B4B651]/20 rounded-[2rem] -rotate-6" />
+                        <div className="absolute bottom-10 left-10 w-3/4 h-3/4 bg-[#C47440]/10 rounded-[2rem] rotate-3" />
+                        
+                        {/* Main Image Container */}
+                        <div className="relative z-10 w-full h-auto max-w-[550px] aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white group">
+                            <img 
+                                src="/images/cendes-book-niños.jpg" 
+                                alt="Estudiantes felices aprendiendo con CENDES" 
+                                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                            />
+                            
+                            {/* Overlay Gradient (Subtle) */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.7 }}
-                            className="rounded-3xl bg-white/10 backdrop-blur-xl p-8 shadow-2xl border border-white/20"
-                        >
-                            <p className="text-5xl md:text-6xl font-bold text-[#B4B651] mb-2">100%</p>
-                            <p className="text-base md:text-lg text-gray-200">Escuelas satisfechas</p>
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.9 }}
-                            className="rounded-3xl bg-gradient-to-br from-[#C47440] to-[#B4B651] p-8 shadow-2xl text-white border border-white/20"
-                        >
-                            <p className="text-5xl md:text-6xl font-bold mb-2">10+</p>
-                            <p className="text-base md:text-lg">Años de experiencia transformando vidas</p>
-                        </motion.div>
+                            {/* Floating Glass Card */}
+                            <motion.div 
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ delay: 0.8 }}
+                                className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/50"
+                            >
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-[#C47440] font-bold text-xs uppercase tracking-wide">Próximo Taller</p>
+                                        <p className="text-[#1A1A1A] font-semibold text-sm">Prevención de Acoso Escolar</p>
+                                    </div>
+                                    <div className="h-10 w-10 flex items-center justify-center rounded-full bg-[#1A1A1A] text-white cursor-pointer hover:bg-[#C47440] transition-colors">
+                                        <ArrowRight className="h-5 w-5 -rotate-45" />
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </div>
                     </motion.div>
                 </div>
             </div>
-
-            {/* Scroll Indicator */}
-            <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block"
-            >
-                <ChevronDown className="h-8 w-8 text-gray-300" />
-            </motion.div>
         </section>
     );
 }
