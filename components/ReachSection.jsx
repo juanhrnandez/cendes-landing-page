@@ -45,7 +45,7 @@ export default function ReachSection() {
     ];
 
     return (
-        <section id="reach" className="py-24 bg-[#F5EFE7] relative overflow-hidden">
+        <section id="reach" className="py-16 md:py-20 bg-[#F5EFE7] relative overflow-hidden">
             {/* Background Decorations */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#C47440]/10 rounded-full blur-[100px]" />
             <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#B4B651]/10 rounded-full blur-[100px]" />

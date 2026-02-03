@@ -35,7 +35,7 @@ export default function HowItWorksSection() {
     };
 
     return (
-        <section id="how-it-works" className="py-24 bg-[#F9FAFB] relative overflow-hidden">
+        <section id="how-it-works" className="py-16 md:py-20 bg-[#F9FAFB] relative overflow-hidden">
             {/* Background Decorations */}
             <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-white to-[#F9FAFB]" />
             <div className="absolute right-0 top-40 h-[400px] w-[400px] bg-[#B4B651]/5 rounded-full blur-[100px]" />
@@ -143,28 +143,49 @@ export default function HowItWorksSection() {
                             >
                                 <Card className="border-0 shadow-xl bg-white relative overflow-hidden">
                                     <div className="absolute top-0 left-0 w-1 h-full bg-[#C47440]" />
-                                    <CardContent className="p-8 text-center md:text-left md:flex md:items-center md:gap-8">
-                                        <div className="bg-[#FFF8F3] p-4 rounded-full mb-4 md:mb-0 inline-flex md:hidden">
-                                            {/* Mobile only icon showing current step */}
-                                            {(() => {
-                                                const ActiveIcon = iconMap[howItWorksSteps[activeStep].icon];
-                                                return <ActiveIcon className="h-8 w-8 text-[#C47440]" />;
-                                            })()}
-                                        </div>
-                                        
-                                        <div className="flex-1">
-                                            <h3 className="text-2xl font-bold text-gray-900 mb-3 flex items-center justify-center md:justify-start gap-3">
-                                                {howItWorksSteps[activeStep].title}
-                                                <ChevronRight className="h-5 w-5 text-gray-300 hidden md:block" />
-                                            </h3>
-                                            <p className="text-lg text-gray-600 leading-relaxed">
-                                                {howItWorksSteps[activeStep].description}
-                                            </p>
+                                    {/* Abstract background for card */}
+                                    <div className="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-[#FFF8F3] to-transparent opacity-50" />
+                                    
+                                    <CardContent className="p-0 grid md:grid-cols-3">
+                                        {/* Left Side: Illustrative Image (New) */}
+                                        <div className="hidden md:block h-full relative overflow-hidden bg-gray-100">
+                                             <img 
+                                                src={`https://images.unsplash.com/photo-${
+                                                    activeStep === 0 ? '1509062522246-3755977927d7' : // Docentes (clase)
+                                                    activeStep === 1 ? '1542037104857-ffbb0b9155fb' : // Familias (familia unida)
+                                                    activeStep === 2 ? '1503095396549-807759245b35' : // Función (escenario/luces)
+                                                    activeStep === 3 ? '1497633762265-9d179a990aa6' : // Materiales (libros/educación)
+                                                    '1544725176-7c40e5a71c5e'  // Reconocimiento (escuela éxito)
+                                                }?q=80&w=600&h=600&auto=format&fit=crop`}
+                                                alt={howItWorksSteps[activeStep].title}
+                                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                                             />
+                                             <div className="absolute inset-0 bg-[#C47440]/10 mix-blend-multiply" />
                                         </div>
 
-                                        {/* Action Hint */}
-                                        <div className="hidden md:flex flex-col items-center justify-center pl-6 border-l border-gray-100">
-                                            <span className="text-4xl font-black text-gray-100">0{activeStep + 1}</span>
+                                        {/* Right Side: Content */}
+                                        <div className="col-span-2 p-8 md:p-10 flex flex-col justify-center text-center md:text-left">
+                                            <div className="bg-[#FFF8F3] p-4 rounded-full mb-4 md:mb-0 inline-flex md:hidden mx-auto">
+                                                {/* Mobile only icon showing current step */}
+                                                {(() => {
+                                                    const ActiveIcon = iconMap[howItWorksSteps[activeStep].icon];
+                                                    return <ActiveIcon className="h-8 w-8 text-[#C47440]" />;
+                                                })()}
+                                            </div>
+                                            
+                                            <div className="flex-1">
+                                                <h3 className="text-2xl md:text-3xl font-black text-gray-900 mb-4 flex items-center justify-center md:justify-start gap-3">
+                                                    {howItWorksSteps[activeStep].title}
+                                                </h3>
+                                                <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                                                    {howItWorksSteps[activeStep].description}
+                                                </p>
+                                            </div>
+
+                                            <div className="hidden md:flex items-center gap-2 mt-6 text-[#C47440] font-bold text-sm tracking-wide uppercase">
+                                                <span className="w-8 h-px bg-[#C47440]"></span>
+                                                Paso 0{activeStep + 1}
+                                            </div>
                                         </div>
                                     </CardContent>
                                 </Card>

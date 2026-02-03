@@ -5,7 +5,7 @@ import { Heart, ArrowDown } from 'lucide-react';
 
 export default function BridgeSection() {
     return (
-        <section className="relative overflow-hidden bg-gradient-to-b from-white via-[#F0F4E8]/30 to-white py-12 md:py-16">
+        <section className="relative overflow-hidden bg-gradient-to-b from-white via-[#F0F4E8]/30 to-white py-10 md:py-14">
             {/* Subtle decorative elements */}
             <div className="absolute inset-0 overflow-hidden opacity-40">
                 {/* Soft wave patterns */}

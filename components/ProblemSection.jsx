@@ -10,7 +10,7 @@ const icons = [AlertCircle, TrendingUp, Users, Shield];
 
 export default function ProblemSection() {
     return (
-        <section id="problem" className="py-20 md:py-24 bg-white relative overflow-hidden">
+        <section id="problem" className="py-16 md:py-20 bg-white relative overflow-hidden">
             {/* Background Gradient Orbs */}
             <div className="absolute top-0 right-0 h-[400px] w-[400px] bg-[#C47440]/5 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2" />
             <div className="absolute bottom-0 left-0 h-[400px] w-[400px] bg-[#B4B651]/5 rounded-full blur-[100px] -translate-x-1/2 translate-y-1/2" />
@@ -55,19 +55,26 @@ export default function ProblemSection() {
                              whileInView={{ opacity: 1, y: 0 }}
                              viewport={{ once: true }}
                              transition={{ delay: 0.2 }}
-                             className="bg-gray-50 rounded-2xl p-6 border border-gray-100"
+                             className="relative rounded-2xl overflow-hidden shadow-2xl group"
                         >
-                            <div className="flex items-start gap-4">
-                                <div className="p-3 bg-white rounded-xl shadow-sm relative overflow-hidden group">
-                                    <Shield className="h-6 w-6 text-[#C47440] relative z-10" />
-                                    <div className="absolute inset-0 bg-[#C47440]/10 scale-0 group-hover:scale-100 transition-transform origin-bottom-left" />
+                            {/* Emotive Image Background */}
+                            <img 
+                                src="https://images.unsplash.com/photo-1594608661623-aa0bd3a69d98?q=80&w=800&auto=format&fit=crop" 
+                                alt="Estudiante en pasillo escolar" 
+                                className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                            
+                            <div className="absolute bottom-0 left-0 p-6 text-white">
+                                <div className="flex items-center gap-3 mb-3">
+                                    <div className="p-2 bg-[#C47440] rounded-lg">
+                                        <Shield className="h-5 w-5 text-white" />
+                                    </div>
+                                    <h3 className="font-bold text-lg">La inacción cuesta vidas</h3>
                                 </div>
-                                <div>
-                                    <h3 className="font-bold text-gray-900 mb-1">La inacción cuesta vidas</h3>
-                                    <p className="text-sm text-gray-500 leading-relaxed">
-                                        Nuestra misión es transformar estas estadísticas a través del arte y la educación emocional, brindando herramientas reales a la comunidad.
-                                    </p>
-                                </div>
+                                <p className="text-sm text-gray-200 leading-relaxed max-w-sm">
+                                    Nuestra misión es transformar estas estadísticas a través del arte y la educación emocional, brindando herramientas reales.
+                                </p>
                             </div>
                         </motion.div>
                     </div>

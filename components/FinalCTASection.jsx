@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 
 export default function FinalCTASection() {
     return (
-        <section id="final-cta" className="relative py-24 bg-[#111827] overflow-hidden">
+        <section id="final-cta" className="relative py-16 md:py-20 bg-[#111827] overflow-hidden">
             {/* Background Effects */}
             <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.05] invert" />
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#C47440]/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />

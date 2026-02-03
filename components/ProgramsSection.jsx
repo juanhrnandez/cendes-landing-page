@@ -27,7 +27,7 @@ const getFormatIcons = (formatString) => {
 
 export default function ProgramsSection() {
     return (
-        <section id="programs" className="py-24 bg-white relative overflow-hidden">
+        <section id="programs" className="py-16 md:py-20 bg-white relative overflow-hidden">
              {/* Background Elements */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(196,116,64,0.05),transparent_40%)]" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(180,182,81,0.05),transparent_40%)]" />
@@ -81,49 +81,82 @@ export default function ProgramsSection() {
                                             whileInView={{ opacity: 1, scale: 1 }}
                                             viewport={{ once: true }}
                                             transition={{ duration: 0.5 }}
-                                            className="h-full"
+                                            className="h-full pt-4 pb-4"
                                         >
-                                            <Card className="h-full border-0 shadow-lg bg-white rounded-3xl overflow-hidden group hover:shadow-2xl transition-all duration-300 flex flex-col relative">
-                                                {/* Card Header Gradient */}
-                                                <div className={`h-2 w-full bg-gradient-to-r ${program.gradient}`} />
-                                                
-                                                <CardHeader className="pt-8 pb-4">
-                                                    <div className="flex justify-between items-start mb-4">
-                                                        <Badge variant="outline" className="text-xs font-semibold py-1 px-3 border-gray-200 bg-gray-50 text-gray-600">
-                                                            {program.ageRange}
-                                                        </Badge>
+                                            <Card className="h-full border-0 shadow-[0_0_30px_-5px_rgba(0,0,0,0.05)] bg-white rounded-[2rem] overflow-hidden group hover:-translate-y-2 hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] transition-all duration-300 flex flex-col relative isolation-auto">
+                                                {/* Visual Header with Image & Gradient */}
+                                                <div className="h-48 w-full relative overflow-hidden">
+                                                    {/* Background Image */}
+                                                    <img 
+                                                        src={program.image} 
+                                                        alt={program.title}
+                                                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                                    />
+                                                    
+                                                    {/* Gradient Overlay */}
+                                                    <div className={`absolute inset-0 bg-gradient-to-br ${program.gradient} opacity-90 mix-blend-multiply transition-opacity duration-300 group-hover:opacity-85`} />
+                                                    
+                                                    {/* Pattern Overlay */}
+                                                    <div className="absolute inset-0 opacity-20 bg-[url('/grid.svg')] mix-blend-overlay" />
+                                                    
+                                                    {/* Floating Badge */}
+                                                    <div className="absolute top-4 right-4 z-10">
+                                                         <Badge className="bg-white/90 backdrop-blur-sm text-gray-900 font-bold border-0 shadow-sm hover:bg-white px-3 py-1 text-xs uppercase tracking-wider">
+                                                            {program.title === 'Corazonada' ? 'Infantil' : program.title.includes('Llamada') ? 'Adolescentes' : 'Jóvenes'}
+                                                         </Badge>
                                                     </div>
-                                                    <CardTitle className="text-3xl font-bold text-gray-900 mb-2 group-hover:text-[#C47440] transition-colors">
-                                                        {program.title}
-                                                    </CardTitle>
-                                                    <CardDescription className="text-base font-medium text-gray-600 line-clamp-2 min-h-[3rem]">
+                                                </div>
+                                                
+                                                <CardHeader className="pt-0 relative px-8">
+                                                    {/* Overlapping Title Card */}
+                                                    <div className="-mt-10 mb-2 z-10 relative">
+                                                        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 inline-block w-full">
+                                                            <div className="flex items-center gap-2 mb-2 text-xs font-bold text-gray-400 uppercase tracking-widest">
+                                                                <span className={`block h-2 w-2 rounded-full bg-gradient-to-r ${program.gradient}`} />
+                                                                Programa
+                                                            </div>
+                                                            <CardTitle className="text-2xl font-black text-gray-900 leading-tight">
+                                                                {program.title}
+                                                            </CardTitle>
+                                                        </div>
+                                                    </div>
+
+                                                    <CardDescription className="text-gray-600 font-medium leading-relaxed text-base mt-2 min-h-[4.5rem]">
                                                         {program.theme}
                                                     </CardDescription>
+                                                    
+                                                    {/* Age Range Specifics */}
+                                                    <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-gray-500 bg-gray-50 p-2 rounded-lg w-fit">
+                                                        <Users className="h-4 w-4" />
+                                                        {program.ageRange}
+                                                    </div>
                                                 </CardHeader>
                                                 
-                                                <CardContent className="flex-grow space-y-6">
+                                                <CardContent className="flex-grow px-8 pb-0">
+                                                    {/* Divider */}
+                                                    <div className="h-px w-full bg-gray-100 my-4" />
+                                                    
                                                     {/* Formats Section */}
                                                     <div>
-                                                        <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Formatos disponibles</p>
+                                                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Disponible en formato:</p>
                                                         <div className="flex flex-wrap gap-2">
                                                             {icons.map((item, idx) => (
-                                                                <div key={idx} className="flex items-center gap-1.5 bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-100 group-hover:bg-[#FFF8F3] group-hover:border-[#FFEADD] transition-colors">
-                                                                    <item.Icon className="h-4 w-4 text-gray-500 group-hover:text-[#C47440]" />
-                                                                    <span className="text-sm font-medium text-gray-600 group-hover:text-[#C47440]">{item.label}</span>
+                                                                <div key={idx} className="flex items-center gap-1.5 bg-[#F9FAFB] px-3 py-1.5 rounded-full border border-gray-100 group-hover:bg-[#FFF8F3] group-hover:border-[#FFEADD] transition-colors duration-300">
+                                                                    <item.Icon className="h-3.5 w-3.5 text-gray-400 group-hover:text-[#C47440] transition-colors" />
+                                                                    <span className="text-xs font-bold text-gray-600 group-hover:text-[#C47440] transition-colors">{item.label}</span>
                                                                 </div>
                                                             ))}
                                                         </div>
                                                     </div>
                                                 </CardContent>
 
-                                                <CardFooter className="pt-4 pb-8 border-t border-gray-50 mt-auto">
+                                                <CardFooter className="pt-8 px-8 pb-8 mt-auto">
                                                     <Button 
-                                                        variant="ghost" 
-                                                        className="w-full justify-between hover:bg-[#FFF8F3] hover:text-[#C47440] group-hover:text-[#C47440]"
+                                                        className={`w-full bg-gradient-to-r ${program.gradient} text-white shadow-lg hover:shadow-xl hover:opacity-90 transition-all rounded-xl py-6 text-base font-bold`}
                                                         asChild
                                                     >
                                                         <Link href="https://registro.cendes.org/">
-                                                            Solicitar Programa <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                                                            Cotizar Programa <ArrowRight className="h-5 w-5 ml-2" />
                                                         </Link>
                                                     </Button>
                                                 </CardFooter>
@@ -131,6 +164,7 @@ export default function ProgramsSection() {
                                         </motion.div>
                                     </CarouselItem>
                                 );
+
                             })}
                         </CarouselContent>
                         <CarouselPrevious className="hidden md:flex -left-12 h-12 w-12 border-gray-200 text-gray-600 hover:text-[#C47440] hover:border-[#C47440]" />

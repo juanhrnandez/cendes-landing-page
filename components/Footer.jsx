@@ -15,7 +15,7 @@ export default function Footer() {
             
             <div className="container-cendes relative z-10">
                 {/* Main Footer Content */}
-                <div className="py-16 px-6">
+                <div className="py-12 px-6">
                     <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
                         
                         {/* Column 1: Brand & Mission */}

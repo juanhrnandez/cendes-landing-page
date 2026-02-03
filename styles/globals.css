@@ -4,24 +4,6 @@
 @custom-variant dark (&:is(.dark *));
 
 @layer base {
-  @font-face {
-    font-family: 'Montserrat';
-    font-weight: 700 800;
-    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap');
-  }
-
-  @font-face {
-    font-family: 'Poppins';
-    font-weight: 600 700;
-    src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
-  }
-
-  @font-face {
-    font-family: 'Open Sans';
-    font-weight: 400 500 600;
-    src: url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap');
-  }
-
   :root {
     /* CENDES Color Palette - From Logo */
     --color-primary: #C47440;

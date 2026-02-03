@@ -18,7 +18,7 @@ import { Badge } from '@/components/ui/badge';
 
 export default function TestimonialsSection() {
     return (
-        <section id="testimonials" className="py-24 bg-white relative overflow-hidden">
+        <section id="testimonials" className="py-16 md:py-20 bg-white relative overflow-hidden">
              {/* Background Decoration */}
              <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.03]" />
              
@@ -69,8 +69,8 @@ export default function TestimonialsSection() {
                                                 </div>
                                                 
                                                 <div className="flex items-center gap-4 pt-6 border-t border-gray-200">
-                                                    <Avatar className="h-12 w-12 border-2 border-white shadow-md">
-                                                        <AvatarImage src={`https://api.dicebear.com/7.x/initials/svg?seed=${testimonial.name}`} />
+                                                    <Avatar className="h-14 w-14 border-2 border-white shadow-md">
+                                                        <AvatarImage src={testimonial.image} className="object-cover" />
                                                         <AvatarFallback className="bg-[#C47440] text-white">
                                                             {testimonial.name.charAt(0)}
                                                         </AvatarFallback>

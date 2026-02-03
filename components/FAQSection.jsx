@@ -15,7 +15,7 @@ import { HelpCircle } from 'lucide-react';
 
 export default function FAQSection() {
     return (
-        <section id="faq" className="py-24 bg-[#F5EFE7]">
+        <section id="faq" className="py-16 md:py-20 bg-[#F5EFE7]">
             <div className="container-cendes px-6 max-w-4xl mx-auto">
                 <div className="text-center mb-16">
                     <motion.div
