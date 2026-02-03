@@ -112,14 +112,14 @@ export default function HeroSection() {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="relative lg:h-[600px] flex items-center justify-center hidden lg:flex"
+                        className="relative w-full h-[400px] lg:h-[600px] flex items-center justify-center mt-10 lg:mt-0"
                     >
                         {/* Abstract Background Shapes behind image */}
-                        <div className="absolute top-10 right-10 w-3/4 h-3/4 bg-[#B4B651]/20 rounded-[2rem] -rotate-6" />
-                        <div className="absolute bottom-10 left-10 w-3/4 h-3/4 bg-[#C47440]/10 rounded-[2rem] rotate-3" />
+                        <div className="absolute top-4 right-4 lg:top-10 lg:right-10 w-3/4 h-3/4 bg-[#B4B651]/20 rounded-[2rem] -rotate-6" />
+                        <div className="absolute bottom-4 left-4 lg:bottom-10 lg:left-10 w-3/4 h-3/4 bg-[#C47440]/10 rounded-[2rem] rotate-3" />
                         
                         {/* Main Image Container */}
-                        <div className="relative z-10 w-full h-auto max-w-[550px] aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white group">
+                        <div className="relative z-10 w-full h-full max-w-[550px] aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white group">
                             <img 
                                 src="/images/cendes-book-niños.jpg" 
                                 alt="Estudiantes felices aprendiendo con CENDES" 
