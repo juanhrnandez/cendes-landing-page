@@ -6,14 +6,41 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import Link from 'next/link';
 
+import { motion } from 'framer-motion';
+
 export default function Footer() {
     return (
-        <footer className="bg-gray-900 text-white relative overflow-hidden">
+        <footer className="bg-black text-white relative mt-0">
+            {/* Wave Divider at Top - Animated & Notorious */}
+            <div className="absolute top-0 left-0 right-0 w-full h-[120px] md:h-[180px] overflow-hidden leading-none z-20 pointer-events-none -translate-y-[99%]">
+                {/* Back Wave (Subtle movement) */}
+                <motion.div 
+                    className="absolute bottom-0 left-0 w-[200%] h-full -ml-[20%] transform rotate-180"
+                    animate={{ x: [0, 40, 0] }}
+                    transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+                >
+                    <svg className="block w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="fill-black/50 opacity-50"></path>
+                    </svg>
+                </motion.div>
+
+                 {/* Front Wave (Main) */}
+                 <motion.div 
+                    className="relative w-[150%] h-full -ml-[10%] transform rotate-180"
+                    animate={{ x: [30, -30, 30] }}
+                    transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                >
+                     <svg className="block w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="fill-black"></path>
+                    </svg>
+                 </motion.div>
+            </div>
+
             {/* Background Decoration */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(196,116,64,0.1),transparent_50%)]" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(180,182,81,0.08),transparent_50%)]" />
             
-            <div className="container-cendes relative z-10">
+            <div className="container-cendes relative z-10 pt-16">
                 {/* Main Footer Content */}
                 <div className="py-12 px-6">
                     <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">

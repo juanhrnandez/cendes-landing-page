@@ -27,7 +27,7 @@ const getFormatIcons = (formatString) => {
 
 export default function ProgramsSection() {
     return (
-        <section id="programs" className="py-16 md:py-20 bg-white relative overflow-hidden">
+        <section id="programs" className="pt-32 pb-48 md:py-32 bg-white relative overflow-hidden">
              {/* Background Elements */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(196,116,64,0.05),transparent_40%)]" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(180,182,81,0.05),transparent_40%)]" />

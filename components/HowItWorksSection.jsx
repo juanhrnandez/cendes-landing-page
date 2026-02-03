@@ -35,7 +35,29 @@ export default function HowItWorksSection() {
     };
 
     return (
-        <section id="how-it-works" className="py-16 md:py-20 bg-[#F9FAFB] relative overflow-hidden">
+        <section id="how-it-works" className="pt-32 pb-48 md:py-32 bg-[#F9FAFB] relative">
+             {/* Wave Divider at Top - Animated */}
+             <div className="absolute top-0 left-0 right-0 w-full h-[100px] md:h-[150px] overflow-hidden leading-none z-20 pointer-events-none -translate-y-[99%]">
+                <motion.div 
+                    className="absolute bottom-0 left-0 w-[200%] h-full -ml-[50%] transform rotate-180"
+                    animate={{ x: [-20, 20, -20] }}
+                    transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+                >
+                    <svg className="block w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="fill-[#F9FAFB]/50"></path>
+                    </svg>
+                </motion.div>
+                 <motion.div 
+                    className="relative w-[150%] h-full -ml-[25%] transform rotate-180"
+                    animate={{ x: [20, -20, 20] }}
+                    transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                >
+                     <svg className="block w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="fill-[#F9FAFB]"></path>
+                    </svg>
+                 </motion.div>
+            </div>
+
             {/* Background Decorations */}
             <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-white to-[#F9FAFB]" />
             <div className="absolute right-0 top-40 h-[400px] w-[400px] bg-[#B4B651]/5 rounded-full blur-[100px]" />

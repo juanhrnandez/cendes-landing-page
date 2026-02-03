@@ -6,7 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 
 export default function SolutionSection() {
     return (
-        <section id="solution" className="py-16 md:py-20 bg-white relative overflow-hidden">
+        <section id="solution" className="pt-32 pb-48 md:py-32 bg-white relative overflow-hidden">
             {/* Background Texture */}
             <div className="absolute inset-0 bg-[#F9F9F9] opacity-50" />
             <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.02]" />
