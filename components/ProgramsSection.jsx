@@ -155,8 +155,8 @@ export default function ProgramsSection() {
                                                         className={`w-full bg-gradient-to-r ${program.gradient} text-white shadow-lg hover:shadow-xl hover:opacity-90 transition-all rounded-xl py-6 text-base font-bold`}
                                                         asChild
                                                     >
-                                                        <Link href="https://registro.cendes.org/">
-                                                            Cotizar Programa <ArrowRight className="h-5 w-5 ml-2" />
+                                                        <Link href={`/programas/${program.id}`}>
+                                                            Ver Detalles <ArrowRight className="h-5 w-5 ml-2" />
                                                         </Link>
                                                     </Button>
                                                 </CardFooter>

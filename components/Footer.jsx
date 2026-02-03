@@ -20,11 +20,11 @@ export default function Footer() {
                         
                         {/* Column 1: Brand & Mission */}
                         <div className="lg:col-span-2">
-                            <div className="mb-6 bg-white p-3 rounded-xl inline-block shadow-lg">
+                            <div className="mb-6 bg-white p-4 rounded-xl inline-block shadow-lg">
                                 <img
                                     src="/images/CENDES.svg"
                                     alt="CENDES Logo"
-                                    className="h-10 w-auto"
+                                    className="h-16 w-auto"
                                 />
                             </div>
                             <h3 className="text-lg font-bold text-white mb-3">
@@ -127,14 +127,14 @@ export default function Footer() {
                 <div className="py-8 px-6">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                         <div className="flex flex-wrap items-center justify-center md:justify-start gap-6 text-sm text-gray-400">
-                            <Link href="#" className="hover:text-white transition-colors">
+                            <Link href="/aviso-de-privacidad" className="hover:text-white transition-colors">
                                 Aviso de Privacidad
                             </Link>
-                            <Link href="#" className="hover:text-white transition-colors">
+                            <Link href="/terminos-y-condiciones" className="hover:text-white transition-colors">
                                 Términos y Condiciones
                             </Link>
-                            <Link href="#faq" className="hover:text-white transition-colors">
-                                FAQ
+                            <Link href="/programas" className="hover:text-white transition-colors">
+                                Catálogo
                             </Link>
                         </div>
                         

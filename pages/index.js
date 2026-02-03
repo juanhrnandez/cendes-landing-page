@@ -9,7 +9,6 @@ import SolutionSection from '@/components/SolutionSection';
 import HowItWorksSection from '@/components/HowItWorksSection';
 import ProgramsSection from '@/components/ProgramsSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
-import ReachSection from '@/components/ReachSection';
 import OptionsSection from '@/components/OptionsSection';
 import BridgeSectionFAQ from '@/components/BridgeSectionFAQ';
 import FAQSection from '@/components/FAQSection';
