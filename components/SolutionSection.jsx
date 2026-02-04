@@ -25,7 +25,7 @@ export default function SolutionSection() {
                          {/* Main Image Layer */}
                         <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white aspect-[4/5] max-w-md mx-auto lg:max-w-full">
                             <img 
-                                src="/images/teatro-cendes.jpg" 
+                                src="/Corazonada/IMG_20240928_160211.jpg" 
                                 alt="Obra de teatro profesional CENDES" 
                                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                             />

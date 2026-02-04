@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,7 +9,7 @@ import { programs } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { CheckCircle2, ArrowLeft, Calendar, Users, Clock, BookOpen, Download } from 'lucide-react';
+import { CheckCircle2, ArrowLeft, Calendar, Users, Clock, BookOpen, Download, X } from 'lucide-react';
 
 export async function getStaticPaths() {
   const paths = programs.map((program) => ({
@@ -24,6 +25,8 @@ export async function getStaticProps({ params }) {
 }
 
 export default function ProgramDetail({ program }) {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   if (!program) return null;
 
   return (
@@ -104,12 +107,20 @@ export default function ProgramDetail({ program }) {
                 <div className="md:col-span-2 space-y-10">
                     <div>
                         <h2 className="text-2xl font-bold text-gray-900 mb-6">Sobre el Programa</h2>
-                        <p className="text-gray-600 leading-relaxed mb-6">
-                            El programa <strong>{program.title}</strong> utiliza el arte y la narrativa para crear un espacio seguro donde los estudiantes pueden reflexionar y aprender sobre prevención. A diferencia de las conferencias tradicionales, nuestro formato {program.format.toLowerCase()} permite una conexión emocional que facilita el aprendizaje significativo.
-                        </p>
-                        <p className="text-gray-600 leading-relaxed">
-                            Nuestro enfoque se basa en la "Cadena de Protección", asegurando que no solo el estudiante reciba la información, sino que todo su entorno (docentes y familia) esté preparado para dar soporte.
-                        </p>
+                        {program.description ? (
+                            <p className="text-gray-600 leading-relaxed mb-6 whitespace-pre-line">
+                                {program.description}
+                            </p>
+                        ) : (
+                            <>
+                                <p className="text-gray-600 leading-relaxed mb-6">
+                                    El programa <strong>{program.title}</strong> utiliza el arte y la narrativa para crear un espacio seguro donde los estudiantes pueden reflexionar y aprender sobre prevención. A diferencia de las conferencias tradicionales, nuestro formato {program.format.toLowerCase()} permite una conexión emocional que facilita el aprendizaje significativo.
+                                </p>
+                                <p className="text-gray-600 leading-relaxed">
+                                    Nuestro enfoque se basa en la "Cadena de Protección", asegurando que no solo el estudiante reciba la información, sino que todo su entorno (docentes y familia) esté preparado para dar soporte.
+                                </p>
+                            </>
+                        )}
                     </div>
 
                     <div>
@@ -118,7 +129,7 @@ export default function ProgramDetail({ program }) {
                              Objetivos de Aprendizaje
                         </h3>
                         <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {['Identificación de riesgos', 'Herramientas de autocuidado', 'Fomento de la denuncia', 'Comunicación asertiva', 'Construcción de confianza', 'Redes de apoyo'].map((item, i) => (
+                            {(program.objectives || ['Identificación de riesgos', 'Herramientas de autocuidado', 'Fomento de la denuncia', 'Comunicación asertiva', 'Construcción de confianza', 'Redes de apoyo']).map((item, i) => (
                                 <li key={i} className="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm">
                                     <div className="h-1.5 w-1.5 rounded-full bg-[#C47440] mt-2.5 shrink-0" />
                                     <span className="text-gray-700">{item}</span>
@@ -126,6 +137,49 @@ export default function ProgramDetail({ program }) {
                             ))}
                         </ul>
                     </div>
+
+                    {program.videos && program.videos.length > 0 && (
+                        <div>
+                             <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[#C47440]"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/></svg>
+                                 Videos del Programa
+                            </h3>
+                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                                 {program.videos.map((vid, idx) => (
+                                     <div key={idx} className="rounded-xl overflow-hidden shadow-sm aspect-video bg-black">
+                                        <video controls className="w-full h-full"> 
+                                            <source src={vid} type="video/mp4" />
+                                        </video>
+                                     </div>
+                                 ))}
+                             </div>
+                        </div>
+                    )}
+        
+                    {program.galleryImages && program.galleryImages.length > 0 && (
+                        <div>
+                             <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-[#C47440]"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                                 Galería de Fotos
+                            </h3>
+                            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                {program.galleryImages.map((img, idx) => (
+                                    <div 
+                                        key={idx} 
+                                        className="relative aspect-square rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+                                        onClick={() => setSelectedImage(img)}
+                                    >
+                                        <Image 
+                                            src={img} 
+                                            alt={`Galería ${program.title} ${idx + 1}`}
+                                            fill
+                                            className="object-cover hover:scale-105 transition-transform duration-300"
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
 
                     <div>
                         <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
@@ -212,6 +266,30 @@ export default function ProgramDetail({ program }) {
         <FinalCTASection />
         <Footer />
       </main>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div 
+            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
+            onClick={() => setSelectedImage(null)}
+        >
+            <button 
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-4 right-4 text-white hover:text-gray-300 z-50 p-2 bg-black/50 rounded-full"
+            >
+                <X className="w-6 h-6" />
+            </button>
+            <div className="relative w-full max-w-5xl h-[80vh] rounded-lg overflow-hidden" onClick={(e) => e.stopPropagation()}>
+                <Image 
+                    src={selectedImage} 
+                    alt="Vista previa" 
+                    fill 
+                    className="object-contain" 
+                    quality={100}
+                />
+            </div>
+        </div>
+      )}
     </>
   );
 }

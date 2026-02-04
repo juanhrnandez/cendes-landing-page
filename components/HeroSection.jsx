@@ -121,7 +121,7 @@ export default function HeroSection() {
                         {/* Main Image Container */}
                         <div className="relative z-10 w-full h-full max-w-[550px] aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white group">
                             <img 
-                                src="/images/cendes-book-niños.jpg" 
+                                src="/Corazonada/IMG_20241017_092504.jpg" 
                                 alt="Estudiantes felices aprendiendo con CENDES" 
                                 className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                             />
