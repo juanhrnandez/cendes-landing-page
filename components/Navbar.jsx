@@ -112,12 +112,8 @@ export default function Navbar() {
                 <div className="hidden lg:flex items-center gap-4">
                     <Button 
                         asChild
-                        variant={isScrolled ? "default" : "outline"}
-                        className={cn(
-                            "rounded-full font-semibold transition-all px-6",
-                            !isScrolled && "bg-white/50 backdrop-blur-sm border-white/40 hover:bg-white hover:text-[#C47440] text-gray-800"
-                        )}
-                        style={isScrolled ? { backgroundColor: '#C47440' } : {}}
+                        className="rounded-full font-semibold transition-all px-6 text-white hover:opacity-90"
+                        style={{ backgroundColor: '#C47440' }}
                     >
                          <Link href="https://registro.cendes.org/">
                             Únete Ahora

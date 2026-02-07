@@ -14,21 +14,26 @@ export default function HeroSection() {
                     
                     {/* Left Column: Content */}
                     <motion.div
-                        className="text-center lg:text-left space-y-8"
+                        className="text-center lg:text-left space-y-6"
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        <h1 className="text-3xl font-extrabold leading-tight text-[#1A1A1A] sm:text-4xl md:text-6xl tracking-tight">
-                            Protegemos a la infancia<br/>
-                            <span className="text-[#635E40]">a través del arte</span>
-                        </h1>
+                        <div className="space-y-3">
+                            <h1 className="text-3xl font-bold leading-tight text-[#1A1A1A] sm:text-4xl md:text-5xl tracking-tight">
+                                Protegemos a la infancia<br/>
+                                <span className="text-[#635E40]">a través del arte</span>
+                            </h1>
+                            <p className="text-base sm:text-lg text-gray-600 font-medium">
+                                Programas profesionales de prevención para escuelas
+                            </p>
+                        </div>
                         
                         <motion.div 
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 0.2, duration: 0.5 }}
-                            className="pt-4"
+                            className="pt-2"
                         >
                             <Button 
                                 size="lg"
