@@ -1,157 +1,129 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Shield, Users, Trophy, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import { Shield, Users, Award } from 'lucide-react';
+import Image from 'next/image';
 
 export default function HeroSection() {
     return (
-        <section className="relative flex min-h-[90vh] items-center overflow-hidden pt-24 pb-48 lg:pt-32 bg-white">
-            {/* Background Decorative Elements - Premium & Clean */}
-            <div className="absolute top-[-10%] right-[-5%] h-[500px] w-[500px] rounded-full bg-[#C47440]/10 blur-[100px]" />
-            <div className="absolute bottom-[-10%] left-[-5%] h-[500px] w-[500px] rounded-full bg-[#B4B651]/10 blur-[100px]" />
+        <section className="relative flex min-h-[85vh] flex-col items-center justify-center overflow-hidden pt-24 pb-48 lg:pt-32" style={{ backgroundColor: 'rgb(247, 241, 238)' }}>
             
-            {/* Subtle Grid Pattern */}
-            <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.03]" />
-
-            <div className="container-cendes relative z-10 px-6">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div className="container relative z-10 px-6 mx-auto">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
                     
                     {/* Left Column: Content */}
                     <motion.div
+                        className="text-center lg:text-left space-y-8"
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="space-y-8"
                     >
-                        {/* Premium Badge */}
+                        <h1 className="text-3xl font-extrabold leading-tight text-[#1A1A1A] sm:text-4xl md:text-6xl tracking-tight">
+                            Protegemos a la infancia<br/>
+                            <span className="text-[#635E40]">a través del arte</span>
+                        </h1>
+                        
+                        <motion.div 
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.2, duration: 0.5 }}
+                            className="pt-4"
+                        >
+                            <Button 
+                                size="lg"
+                                className="text-white px-10 py-7 text-xl rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 font-semibold"
+                                style={{ backgroundColor: 'rgb(99, 94, 64)' }}
+                            >
+                                Conocer más
+                            </Button>
+                        </motion.div>
+
+                        {/* Stats Grid - Adjusted for column width */}
                         <motion.div 
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2, duration: 0.5 }}
-                            className="inline-flex items-center gap-2 rounded-full bg-[#F5F5F0] px-4 py-1.5 border border-[#E5E5E0] shadow-sm"
+                            transition={{ delay: 0.4, duration: 0.6 }}
+                            className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8"
                         >
-                            <span className="flex h-2 w-2 relative">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C47440] opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C47440]"></span>
-                            </span>
-                            <span className="text-xs font-bold uppercase tracking-widest text-[#5A5A5A]">
-                                Campaña Nacional 2026
-                            </span>
+                            <div className="flex flex-col items-center lg:items-start space-y-2 p-4 rounded-xl bg-white/50 backdrop-blur-sm border border-[#D0C29D]/30 shadow-sm transition-all hover:bg-white/80">
+                                <div className="p-3 bg-[#D0C29D]/20 rounded-full text-[#635E40] mb-2">
+                                    <Shield className="h-6 w-6" />
+                                </div>
+                                <div className="text-3xl font-extrabold text-[#635E40]">10+</div>
+                                <p className="text-sm font-semibold text-gray-700 text-center lg:text-left">Años de experiencia</p>
+                            </div>
+                            <div className="flex flex-col items-center lg:items-start space-y-2 p-4 rounded-xl bg-white/50 backdrop-blur-sm border border-[#D0C29D]/30 shadow-sm transition-all hover:bg-white/80">
+                                <div className="p-3 bg-[#D0C29D]/20 rounded-full text-[#635E40] mb-2">
+                                    <Users className="h-6 w-6" />
+                                </div>
+                                <div className="text-3xl font-extrabold text-[#635E40]">+500k</div>
+                                <p className="text-sm font-semibold text-gray-700 text-center lg:text-left">Niñas, niños y adolescentes impactados</p>
+                            </div>
+                            <div className="flex flex-col items-center lg:items-start space-y-2 p-4 rounded-xl bg-white/50 backdrop-blur-sm border border-[#D0C29D]/30 shadow-sm transition-all hover:bg-white/80">
+                                <div className="p-3 bg-[#D0C29D]/20 rounded-full text-[#635E40] mb-2">
+                                    <Award className="h-6 w-6" />
+                                </div>
+                                <div className="text-xl font-extrabold text-[#635E40] mt-1 mb-1">Reconocidos</div>
+                                <p className="text-sm font-semibold text-gray-700 text-center lg:text-left">por SIPINNA y el DIF</p>
+                            </div>
                         </motion.div>
-
-                        {/* Heading */}
-                        <div className="space-y-4">
-                            <h1 className="text-4xl font-extrabold leading-[1.15] text-[#1A1A1A] sm:text-5xl md:text-6xl tracking-tight">
-                                Protege a tu comunidad escolar con <span className="text-[#C47440]">educación</span> y <span className="text-[#B4B651]">arte</span>.
-                            </h1>
-                            <p className="text-lg text-[#5A5A5A] leading-relaxed md:text-xl font-medium max-w-xl">
-                                La solución integral para la prevención de violencia sexual, bullying y acoso en escuelas, validada por más de 10 años de experiencia.
-                            </p>
-                        </div>
-
-                        {/* CTA Actions */}
-                        <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                            <Button 
-                                size="lg" 
-                                className="bg-[#C47440] hover:bg-[#A85F33] text-white rounded-full px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 font-semibold"
-                                asChild
-                            >
-                                <Link href="https://registro.cendes.org/">
-                                    Contactar Ahora <ArrowRight className="ml-2 h-5 w-5" />
-                                </Link>
-                            </Button>
-                            <Button 
-                                variant="outline" 
-                                size="lg" 
-                                className="border-[#C47440]/20 text-[#1A1A1A] hover:bg-[#C47440]/5 hover:border-[#C47440] rounded-full px-8 py-6 text-lg font-semibold"
-                                asChild
-                            >
-                                <Link href="#programs">
-                                    Ver Programas
-                                </Link>
-                            </Button>
-                        </div>
-                        
-                        {/* Trust Indicators */}
-                        <div className="pt-8 border-t border-gray-100 flex flex-wrap gap-8 items-center">
-                            <div className="flex items-center gap-3">
-                                <div className="p-2 bg-[#C47440]/10 rounded-lg">
-                                    <Shield className="h-5 w-5 text-[#C47440]" />
-                                </div>
-                                <div className="text-sm">
-                                    <p className="font-bold text-[#1A1A1A]">Seguridad</p>
-                                    <p className="text-[#6A6A6A]">Certificada</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <div className="p-2 bg-[#B4B651]/10 rounded-lg">
-                                    <Users className="h-5 w-5 text-[#9A9B42]" />
-                                </div>
-                                <div className="text-sm">
-                                    <p className="font-bold text-[#1A1A1A]">+500k</p>
-                                    <p className="text-[#6A6A6A]">Impactados</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <div className="p-2 bg-gray-100 rounded-lg">
-                                    <Trophy className="h-5 w-5 text-gray-600" />
-                                </div>
-                                <div className="text-sm">
-                                    <p className="font-bold text-[#1A1A1A]">10 Años</p>
-                                    <p className="text-[#6A6A6A]">Experiencia</p>
-                                </div>
-                            </div>
-                        </div>
-
                     </motion.div>
 
-                    {/* Right Column: Visual */}
+                    {/* Right Column: Image */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="relative w-full h-[400px] lg:h-[600px] flex items-center justify-center mt-10 lg:mt-0"
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                        className="relative h-[400px] lg:h-[600px] w-full hidden lg:block"
                     >
-                        {/* Abstract Background Shapes behind image */}
-                        <div className="absolute top-4 right-4 lg:top-10 lg:right-10 w-3/4 h-3/4 bg-[#B4B651]/20 rounded-[2rem] -rotate-6" />
-                        <div className="absolute bottom-4 left-4 lg:bottom-10 lg:left-10 w-3/4 h-3/4 bg-[#C47440]/10 rounded-[2rem] rotate-3" />
-                        
-                        {/* Main Image Container */}
-                        <div className="relative z-10 w-full h-full max-w-[550px] aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white group">
-                            <img 
-                                src="/Corazonada/IMG_20241017_092504.jpg" 
-                                alt="Estudiantes felices aprendiendo con CENDES" 
-                                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                         {/* Abstract shape or container for image */}
+                         <div className="absolute inset-0 bg-[#D0C29D] rounded-tl-[100px] rounded-br-[100px] transform rotate-3 opacity-20 z-0"></div>
+                         <div className="absolute inset-0 overflow-hidden rounded-tl-[100px] rounded-br-[100px] shadow-2xl z-10 border-4 border-white">
+                            <Image 
+                                src="/images/hero-cendes.jpg" 
+                                alt="CENDES Impacto Social" 
+                                fill
+                                className="object-cover"
+                                priority
                             />
-                            
-                            {/* Overlay Gradient (Subtle) */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
-
-                            {/* Floating Glass Card */}
-                            <motion.div 
-                                initial={{ y: 20, opacity: 0 }}
-                                animate={{ y: 0, opacity: 1 }}
-                                transition={{ delay: 0.8 }}
-                                className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/50"
-                            >
-                                <div className="flex items-center justify-between">
-                                    <div>
-                                        <p className="text-[#C47440] font-bold text-xs uppercase tracking-wide">Próximo Taller</p>
-                                        <p className="text-[#1A1A1A] font-semibold text-sm">Prevención de Acoso Escolar</p>
-                                    </div>
-                                    <div className="h-10 w-10 flex items-center justify-center rounded-full bg-[#1A1A1A] text-white cursor-pointer hover:bg-[#C47440] transition-colors">
-                                        <ArrowRight className="h-5 w-5 -rotate-45" />
-                                    </div>
-                                </div>
-                            </motion.div>
-                        </div>
+                         </div>
                     </motion.div>
                 </div>
             </div>
 
-            {/* Bottom Wave Divider - REMOVED */}
+            {/* Waves Container */}
+            <div className="absolute bottom-0 left-0 w-full leading-none z-0 overflow-hidden">
+                <svg className="relative block w-[200%] -ml-[50%] h-[200px] sm:h-[250px] md:h-[300px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                    
+                    {/* Layer 1 (Back): Darkest Wave rgb(183, 167, 143) - Top band */}
+                    <motion.path 
+                        fill="rgb(183, 167, 143)" 
+                        fillOpacity="1" 
+                        d="M0,96L48,112C96,128,192,160,288,165.3C384,171,480,149,576,154.7C672,160,768,192,864,202.7C960,213,1056,203,1152,181.3C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                        animate={{ x: ["0px", "200px", "0px"] }}
+                        transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
+                    />
+
+                    {/* Layer 2 (Middle): Medium Wave rgb(208, 194, 157) - Middle band */}
+                    <motion.path 
+                        fill="rgb(208, 194, 157)" 
+                        fillOpacity="1" 
+                        d="M0,160L48,170.7C96,181,192,203,288,202.7C384,203,480,181,576,176C672,171,768,181,864,197.3C960,213,1056,235,1152,229.3C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                        animate={{ x: ["200px", "0px", "200px"] }}
+                        transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
+                    />
+
+                    {/* Layer 3 (Front): Light beige wave rgb(220, 205, 180) - Bottom band */}
+                    <motion.path 
+                        fill="rgb(220, 205, 180)" 
+                        fillOpacity="1" 
+                        d="M0,224L48,234.7C96,245,192,267,288,261.3C384,256,480,224,576,218.7C672,213,768,235,864,245.3C960,256,1056,256,1152,245.3C1248,235,1344,213,1392,202.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                        animate={{ x: ["0px", "-200px", "0px"] }}
+                        transition={{ repeat: Infinity, duration: 12, ease: "easeInOut" }}
+                    />
+                </svg>
+            </div>
         </section>
     );
 }
