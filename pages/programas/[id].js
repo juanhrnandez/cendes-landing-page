@@ -54,6 +54,15 @@ export default function ProgramDetail({ program }) {
                     
                     {/* Content */}
                     <div className="space-y-6">
+                        {program.logo && (
+                            <div className="mb-4">
+                                <img 
+                                    src={program.logo} 
+                                    alt={`${program.title} Logo`}
+                                    className={`w-auto object-contain ${program.logoSize || 'h-24 md:h-32'}`}
+                                />
+                            </div>
+                        )}
                         <Badge className={`bg-gradient-to-r ${program.gradient} text-white border-0 px-4 py-1.5`}>
                             {program.ageRange}
                         </Badge>
@@ -254,9 +263,6 @@ export default function ProgramDetail({ program }) {
                                 </div>
                             </div>
                             
-                            <Button className="w-full bg-[#18181B] text-white hover:bg-gray-800 shadow-md">
-                                <Download className="w-4 h-4 mr-2" /> Descargar Folleto
-                            </Button>
                         </div>
                     </div>
                 </div>
