@@ -86,9 +86,10 @@ export default function HeroSection() {
                          <div className="absolute inset-0 bg-[#D0C29D] rounded-tl-[100px] rounded-br-[100px] transform rotate-3 opacity-20 z-0"></div>
                          <div className="absolute inset-0 overflow-hidden rounded-tl-[100px] rounded-br-[100px] shadow-2xl z-10 border-4 border-white">
                             <Image 
-                                src="/images/hero-cendes.jpg" 
+                                src="/heroimg.png" 
                                 alt="CENDES Impacto Social" 
                                 fill
+                                sizes="(max-width: 1024px) 0vw, 50vw"
                                 className="object-cover"
                                 priority
                             />
